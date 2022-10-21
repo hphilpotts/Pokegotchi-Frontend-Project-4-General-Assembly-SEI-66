@@ -1,13 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class 
- extends Component {
-  render() {
-    return (
-      <div>
-        Hey Guys look at our react app
-      </div>
-    )
-  }
+// MUI imports:
+import { Typography } from '@mui/material'
+
+// Component imports:
+import Logo from './main/Logo'
+import Header from './main/Header'
+
+export default function App() {
+  return (
+    <div>
+      <Logo></Logo>
+      <Header></Header>
+      <Typography variant="h1">Hey Guys look at our react app</Typography>
+    </div>
+  )
 }
-
