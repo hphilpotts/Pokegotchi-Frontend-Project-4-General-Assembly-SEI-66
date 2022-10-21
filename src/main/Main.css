@@ -1,0 +1,18 @@
+/* || -- CSS for main components -- */
+
+/* || Text */
+.yellow-text {
+    color: #3B4CCA
+}
+
+/* || Header */
+.header-div {
+    display: flex;
+    justify-content: center;
+    background-color: #FFDE00;
+}
+
+.header-image {
+    max-height: 10vh;
+    margin-bottom: 0.5%;
+}
