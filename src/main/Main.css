@@ -26,3 +26,8 @@
 .header-bar {
     border-radius: 0.7em;
 }
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
