@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
-.app-margin {
-  margin: 0 5%
+/* TODO : add media query to reduce/inrease this based on screen size? */
+
+.app-outer {
+  margin: 0 3%;
+}
+
+.test-box {
+  height: 100%;
+  background-color: #FF0000;
+  display: flex;
 }

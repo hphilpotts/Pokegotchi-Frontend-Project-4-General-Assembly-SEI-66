@@ -13,16 +13,16 @@
 }
 
 .logo-image {
-    max-height: 10vh;
+    max-height: 5em;
     margin-bottom: 0.5%;
 }
 
 /* || Header */
 
 .header-box {
-    border-radius: 5px;
+    border-radius: 0.5em;
 }
 
 .header-bar {
-    border-radius: 7px;
+    border-radius: 0.7em;
 }

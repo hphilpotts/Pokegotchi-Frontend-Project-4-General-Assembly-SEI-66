@@ -10,10 +10,16 @@ import { Box } from '@mui/system'
 
 export default function App() {
   return (
-    <Box className="app-margin">
+    <div className="app-div">
+    <Box className="app-outer">
       <Logo></Logo>
       <Header></Header>
-      <Typography variant="h1">Hey Guys look at our react app</Typography>
+      <Box className="test-box" sx={{
+        height: '79vh'
+      }}>
+        <Typography variant="h5">Hey Guys look at our react app</Typography>
+      </Box>
     </Box>
+    </div>
   )
 }
