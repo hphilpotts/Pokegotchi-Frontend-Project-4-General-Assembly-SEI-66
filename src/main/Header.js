@@ -17,13 +17,18 @@ export default function Header() {
     <Box sx={{ 
       flexGrow: 1,
       backgroundColor: "#FFDE00"
-     }}>
-      <AppBar position="static">
+     }}
+     className="header-box"
+     >
+      <AppBar position="static"
+      className="header-bar">
         <Toolbar sx={{
           backgroundColor: "#FFDE00"
         }}
-        className="yellow-text"
+        className="yellow-text header-box"
         >
+
+        {/* Menu here - styling only, not yet implemented */}
           <IconButton
             size="large"
             edge="start"
@@ -33,10 +38,16 @@ export default function Header() {
           >
             <MenuIcon />
           </IconButton>
+
+        {/* Profile link, sits on left of toolbar */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            <a>Profile</a>
           </Typography>
-          <Button color="inherit">Login</Button>
+
+        {/* User Auth buttons */}
+          <Button color="inherit">Sign In</Button>
+          <Button color="inherit">Sign Up</Button>
+          <Button color="inherit">Logout</Button>
         </Toolbar>
       </AppBar>
     </Box>

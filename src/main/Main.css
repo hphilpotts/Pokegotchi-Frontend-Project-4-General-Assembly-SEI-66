@@ -5,14 +5,24 @@
     color: #3B4CCA
 }
 
-/* || Header */
-.header-div {
+/* || Logo */
+.logo-div {
     display: flex;
     justify-content: center;
-    background-color: #FFDE00;
+    /* background-color: #FFDE00; */
 }
 
-.header-image {
+.logo-image {
     max-height: 10vh;
     margin-bottom: 0.5%;
+}
+
+/* || Header */
+
+.header-box {
+    border-radius: 5px;
+}
+
+.header-bar {
+    border-radius: 7px;
 }
