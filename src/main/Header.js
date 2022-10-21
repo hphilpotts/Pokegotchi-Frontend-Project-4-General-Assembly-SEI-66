@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 // CSS import:
-import './Main.css'
+import './main.css'
 
 export default function Header() {
   return (
@@ -41,7 +41,7 @@ export default function Header() {
 
         {/* Profile link, sits on left of toolbar */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <a>Profile</a>
+            Profile
           </Typography>
 
         {/* User Auth buttons */}

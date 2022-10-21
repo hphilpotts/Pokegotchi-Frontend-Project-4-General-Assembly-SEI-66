@@ -17,9 +17,3 @@ code {
 .app-outer {
   margin: 0 3%;
 }
-
-.test-box {
-  height: 100%;
-  background-color: #FF0000;
-  display: flex;
-}

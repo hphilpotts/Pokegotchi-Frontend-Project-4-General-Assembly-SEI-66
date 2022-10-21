@@ -1,12 +1,12 @@
 import React from 'react'
 
 // MUI imports:
-import { Typography } from '@mui/material'
+import { Box } from '@mui/system'
 
 // Component imports:
 import Logo from './main/Logo'
 import Header from './main/Header'
-import { Box } from '@mui/system'
+import Card from './card/Card'
 
 export default function App() {
   return (
@@ -14,11 +14,7 @@ export default function App() {
     <Box className="app-outer">
       <Logo></Logo>
       <Header></Header>
-      <Box className="test-box" sx={{
-        height: '79vh'
-      }}>
-        <Typography variant="h5">Hey Guys look at our react app</Typography>
-      </Box>
+      <Card></Card>
     </Box>
     </div>
   )
