@@ -16,7 +16,8 @@ export default function SignUp() {
   const [newUser, setNewUser] = useState({
     email: '',
     name: '',
-    password: ''
+    password: '',
+    verifyPassword: ''
   })
   const [values, setValues] = React.useState({
     amount: '',
@@ -52,13 +53,13 @@ export default function SignUp() {
       <FormControl className='form-ctrl'>
         <InputLabel htmlFor='email-input'>Email Address</InputLabel>
         <Input id="email-input" aria-describedby="email-helper-text" name="email" onChange={changeHandler}></Input>
-        <FormHelperText id="email-helper-text">Please enter a valid email adress</FormHelperText>
-      </FormControl><br></br><br></br>
+        <FormHelperText className='hide-helper' id="email-helper-text">Please enter a valid email adress</FormHelperText>
+      </FormControl><br></br>
       <FormControl className='form-ctrl'>
         <InputLabel htmlFor='name-input'>Name</InputLabel>
         <Input id="name-input" aria-describedby="email-helper-text" name="name" onChange={changeHandler}></Input>
-        <FormHelperText id="email-helper-text">Enter a valid name</FormHelperText>
-      </FormControl><br></br><br></br>
+        <FormHelperText className='hide-helper' id="email-helper-text">Enter a valid name</FormHelperText>
+      </FormControl><br></br>
 
       <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined" className='form-ctrl'>
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
@@ -82,9 +83,22 @@ export default function SignUp() {
             }
             label="Password"
           />
-        <FormHelperText id="email-helper-text">Choose a password</FormHelperText>
+        <FormHelperText className='hide-helper' id="email-helper-text">Choose a password</FormHelperText>
 
-      </FormControl><br></br>
+      </FormControl><br/>
+      <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined" className='form-ctrl'>
+          <InputLabel htmlFor="outlined-adornment-verifyPassword">Confirm Password</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-verifyPassword"
+            type={values.showPassword ? 'text' : 'password'}
+            value={values.password}
+            name="verifyPassword"
+            onChange={changeHandler}
+            label="Password"
+          />
+        <FormHelperText className='hide-helper' id="email-helper-text">Choose a password</FormHelperText>
+
+      </FormControl><br/>
       <FormControl className='formctrl'>
       <Button variant="contained" className='form-button'>Create account</Button>
       </FormControl>

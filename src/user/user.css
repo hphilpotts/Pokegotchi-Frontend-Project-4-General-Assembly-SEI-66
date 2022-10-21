@@ -16,11 +16,12 @@
 }
 
 .form-box {
-    padding: 2em 0;
+    padding: 1em 0;
 }
 
 .form-button {
-    width: 50%;
+    width: 60%;
+    min-width: 5em;
     margin-top: 2em;
     background-color: #3B4CCA;
 }
@@ -32,4 +33,8 @@
 
 .form-ctrl {
     max-width: 20em;
+}
+
+.hide-helper {
+    display: none;
 }
