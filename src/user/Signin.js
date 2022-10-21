@@ -11,7 +11,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import './user.css'
 
 
-export default function Signin() {
+export default function Signin(props) {
 
   const [newUser, setNewUser] = useState({ // init to empty string (controlled input)
     email: '',
@@ -36,8 +36,12 @@ export default function Signin() {
   const changeHandler = e => {
     const user ={...newUser}
     user[e.target.name] = e.target.value
-    console.log(user) // todo remove p-debug
+    console.log(user) 
     setNewUser(user)
+  }
+
+  const loginHandler = () => {
+    props.login(newUser)
   }
 
   return (
@@ -78,7 +82,7 @@ export default function Signin() {
           />
       </FormControl><br></br>
       <FormControl className='formctrl'>
-      <Button variant="contained" className='form-button'>Submit</Button>
+      <Button variant="contained" className='form-button' onClick={loginHandler}>Submit</Button>
       </FormControl>
       </FormGroup>
     </Box>

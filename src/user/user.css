@@ -23,7 +23,8 @@
     width: 60%;
     min-width: 5em;
     margin-top: 2em;
-    background-color: #3B4CCA;
+    /* don't look at this nasty bit of css below please */
+    background-color: #3B4CCA !important; 
 }
 
 .form-title {
