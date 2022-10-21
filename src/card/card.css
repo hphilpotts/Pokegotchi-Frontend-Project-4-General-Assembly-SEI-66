@@ -1,0 +1,68 @@
+.card-box {
+    height: 100%;
+  }
+
+.card-outer {
+    background-color: #FFDE00;
+    height: 79vh;
+    display: flex;
+    margin-top: 2%;
+    border-radius: 1em;
+    min-height: 40em;
+    max-width: 30em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card-inner {
+    background-color: #e5c706;
+    margin: 4%;
+    width: 100%;
+    height: auto;
+    padding: 4%;
+}
+
+.card-box-inner {
+    margin: 0.3em;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    
+}
+
+.name-box {
+    background-color: transparent;
+    height: 4%;
+}
+
+.sprite-box {
+    background-color: white;
+    height: 45%;
+    width: 95%;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttons-box {
+    background-color: #3B4CCA;
+    height: 16%;
+    margin-top: -0.3em;
+    width: 95%;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.status-box {
+    background-color: transparent;
+    height: 20%;
+}
+
+.updates-box {
+    background-color: transparent;
+    height: 12%;
+}
