@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* TODO : add media query to reduce/inrease this based on screen size? */
+
+.app-outer {
+  margin: 0 3%;
+}
+
