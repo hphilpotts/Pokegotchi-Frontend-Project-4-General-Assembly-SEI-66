@@ -13,18 +13,14 @@ import './user.css'
 
 export default function Signin() {
 
-  const [newUser, setNewUser] = useState({})
+  const [newUser, setNewUser] = useState({ // init to empty string (controlled input)
+    email: '',
+    password: ''
+  })
   const [values, setValues] = React.useState({
     amount: '',
-    password: '',
-    weight: '',
-    weightRange: '',
     showPassword: false,
   });
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
 
   const handleClickShowPassword = () => {
     setValues({
@@ -54,7 +50,7 @@ export default function Signin() {
       <FormGroup>
       <FormControl className='form-ctrl'>
         <InputLabel htmlFor='email-input'>Email Address</InputLabel>
-        <Input id="email-input" aria-describedby="email-helper-text"  onChange={changeHandler}></Input>
+        <Input id="email-input" aria-describedby="email-helper-text"  name='email' onChange={changeHandler}></Input>
         {/* <FormHelperText id="email-helper-text">Chuck yer email in here</FormHelperText> */}
       </FormControl><br></br><br></br>
 
@@ -63,8 +59,9 @@ export default function Signin() {
           <OutlinedInput
             id="outlined-adornment-password"
             type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            onChange={handleChange('password')}
+            value={newUser.password}
+            name='password'
+            onChange={changeHandler}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton

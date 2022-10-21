@@ -13,18 +13,15 @@ import './user.css'
 
 export default function SignUp() {
 
-  const [newUser, setNewUser] = useState({})
+  const [newUser, setNewUser] = useState({
+    email: '',
+    name: '',
+    password: ''
+  })
   const [values, setValues] = React.useState({
     amount: '',
-    password: '',
-    weight: '',
-    weightRange: '',
     showPassword: false,
   });
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
 
   const handleClickShowPassword = () => {
     setValues({
@@ -54,12 +51,12 @@ export default function SignUp() {
       <FormGroup>
       <FormControl className='form-ctrl'>
         <InputLabel htmlFor='email-input'>Email Address</InputLabel>
-        <Input id="email-input" aria-describedby="email-helper-text"  onChange={changeHandler}></Input>
+        <Input id="email-input" aria-describedby="email-helper-text" name="email" onChange={changeHandler}></Input>
         <FormHelperText id="email-helper-text">Please enter a valid email adress</FormHelperText>
       </FormControl><br></br><br></br>
       <FormControl className='form-ctrl'>
-        <InputLabel htmlFor='email-input'>Name</InputLabel>
-        <Input id="email-input" aria-describedby="email-helper-text"  onChange={changeHandler}></Input>
+        <InputLabel htmlFor='name-input'>Name</InputLabel>
+        <Input id="name-input" aria-describedby="email-helper-text" name="name" onChange={changeHandler}></Input>
         <FormHelperText id="email-helper-text">Enter a valid name</FormHelperText>
       </FormControl><br></br><br></br>
 
@@ -69,7 +66,8 @@ export default function SignUp() {
             id="outlined-adornment-password"
             type={values.showPassword ? 'text' : 'password'}
             value={values.password}
-            onChange={handleChange('password')}
+            name="password"
+            onChange={changeHandler}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
