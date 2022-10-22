@@ -33,12 +33,17 @@
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    display: flex;
+
     
 }
 
 .name-box {
     background-color: transparent;
     height: 4%;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .sprite-box {
@@ -48,6 +53,8 @@
     position: relative; 
     left: 50%;
     transform: translateX(-50%);
+    box-shadow: 3px 3px 3px rgb(162, 162, 162);
+
 }
 
 .buttons-box {
@@ -58,6 +65,8 @@
     position: relative; 
     left: 50%;
     transform: translateX(-50%);
+    box-shadow: 3px 3px 3px rgb(162, 162, 162);
+
 }
 
 .status-box {
