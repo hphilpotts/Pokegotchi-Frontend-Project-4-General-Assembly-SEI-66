@@ -1,0 +1,80 @@
+.card-box {
+    height: 100%;
+  }
+
+.card-outer {
+    background-color: #FFDE00;
+    height: 79vh;
+    display: flex;
+    margin-top: 2%;
+    border-radius: 1em;
+    min-height: 40em;
+    max-width: 30em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 5px 5px 5px rgb(162, 162, 162);
+}
+
+.card-inner {
+    /* background-color: #e5c706; */
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/176622e8-bf4c-4d60-9a64-b75cff245c16/d3n22fk-ca665f8a-9aa5-4508-9132-a0cc7b06c3b8.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE3NjYyMmU4LWJmNGMtNGQ2MC05YTY0LWI3NWNmZjI0NWMxNlwvZDNuMjJmay1jYTY2NWY4YS05YWE1LTQ1MDgtOTEzMi1hMGNjN2IwNmMzYjgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.eA_wRwNxQiV4TEmP_yY1ZEauNMCFMTml6wDnx5BdmzQ");
+    background-size: cover;
+    margin: 4%;
+    width: 100%;
+    height: auto;
+    padding: 4%;
+}
+
+.card-box-inner {
+    margin: 0.3em;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    display: flex;
+
+    
+}
+
+.name-box {
+    background-color: transparent;
+    height: 4%;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.sprite-box {
+    background-color: white;
+    height: 45%;
+    width: 95%;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 3px 3px 3px rgb(162, 162, 162);
+
+}
+
+.buttons-box {
+    background-color: #3B4CCA;
+    height: 16%;
+    margin-top: -0.3em;
+    width: 95%;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 3px 3px 3px rgb(162, 162, 162);
+
+}
+
+.status-box {
+    background-color: transparent;
+    height: 20%;
+}
+
+.updates-box {
+    background-color: transparent;
+    height: 12%;
+}

@@ -1,0 +1,33 @@
+/* || -- CSS for main components -- */
+
+/* || Text */
+.yellow-text {
+    color: #3B4CCA
+}
+
+/* || Logo */
+.logo-div {
+    display: flex;
+    justify-content: center;
+    /* background-color: #FFDE00; */
+}
+
+.logo-image {
+    /* max-height: 5em; */
+    margin-bottom: 0.5%;
+}
+
+/* || Header */
+
+.header-box {
+    border-radius: 0.5em;
+}
+
+.header-bar {
+    border-radius: 0.7em;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
