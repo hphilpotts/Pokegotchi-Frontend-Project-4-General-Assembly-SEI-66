@@ -8,7 +8,7 @@ import './main.css'
 export default function Logo() {
   return (
     <div className='logo-div'>
-        <img src="img/PokeGochi2.png" className='logo-image' alt="pokemon-logo"/>
+        <img src="img/PokeGotchi1.png" className='logo-image' alt="pokemon-logo"/>
     </div>
   )
 }

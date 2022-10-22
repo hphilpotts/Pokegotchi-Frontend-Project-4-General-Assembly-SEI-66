@@ -9,11 +9,14 @@
     margin-top: 2%;
     border-radius: 1em;
     min-height: 40em;
+    max-height: 55em;
     max-width: 30em;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 5px 5px 5px rgb(162, 162, 162);
+    margin-bottom: 20px;
+
 }
 
 .card-inner {

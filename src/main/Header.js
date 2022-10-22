@@ -51,6 +51,9 @@ export default function Header(props) {
             <Link to='/card' className='link'>My Pokégotchi</Link>
           </Typography>
 
+          {/* vertial line for seperating Card from auth links */}
+          <div class="vl"></div>
+
         {/* User Auth buttons */}
           <Link className='link' to='/signin'><Button color="inherit">Sign In</Button></Link>
           <Link className='link' to='/signup'><Button color="inherit" >Sign Up</Button></Link>
