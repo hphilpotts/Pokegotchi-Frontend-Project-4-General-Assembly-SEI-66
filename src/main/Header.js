@@ -14,7 +14,12 @@ import { Link } from 'react-router-dom'
 // CSS import:
 import './main.css'
 
-export default function Header() {
+export default function Header(props) {
+
+  const logoutHandler = e => {
+    props.onLogoutHandler()
+  }
+
   return (
     <Box sx={{ 
       flexGrow: 1,
@@ -43,13 +48,13 @@ export default function Header() {
 
         {/* Profile link, sits on left of toolbar */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to='/card' className='link'>Profile</Link>
+            <Link to='/card' className='link'>My Pokégotchi</Link>
           </Typography>
 
         {/* User Auth buttons */}
           <Link className='link' to='/signin'><Button color="inherit">Sign In</Button></Link>
           <Link className='link' to='/signup'><Button color="inherit" >Sign Up</Button></Link>
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit" onClick={logoutHandler}>Logout</Button>
         </Toolbar>
       </AppBar>
     </Box>

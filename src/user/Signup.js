@@ -11,9 +11,9 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import './user.css'
 
 
-export default function SignUp() {
+export default function SignUp(props) {
 
-  const [newUser, setNewUser] = useState({
+  const [newUser, setNewUser] = useState({ // These init as empty strings, else a uncontrolled / controlled input error shows
     email: '',
     name: '',
     password: '',
@@ -40,6 +40,13 @@ export default function SignUp() {
     user[e.target.name] = e.target.value
     console.log(user) // todo remove p-debug
     setNewUser(user)
+  }
+
+  const registerHandler = () => {
+    // TODO : code for if state: password and state: verifyPassword do not match!
+      // ? maybe add a cheeky error message or helpertext ?
+
+    props.register(newUser)
   }
 
   return (
@@ -100,7 +107,7 @@ export default function SignUp() {
 
       </FormControl><br/>
       <FormControl className='formctrl'>
-      <Button variant="contained" className='form-button'>Create account</Button>
+      <Button variant="contained" className='form-button' onClick={registerHandler}>Create account</Button>
       </FormControl>
       </FormGroup>
     </Box>
