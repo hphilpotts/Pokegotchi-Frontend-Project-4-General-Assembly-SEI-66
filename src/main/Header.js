@@ -12,7 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 
 // CSS import:
-import './main.css'
+import './Main.css'
 
 export default function Header(props) {
 
