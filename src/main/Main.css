@@ -14,14 +14,17 @@
 
 .logo-image {
     /* max-height: 5em; */
+    margin-top: 2%;
     margin-bottom: 2%;
 }
 
 /* || Header */
 
 .header-box {
-    max-width: 34em;
+    margin: auto;
+    max-width: 30em;
     border-radius: 0.5em;
+
 }
 
 .header-bar {
