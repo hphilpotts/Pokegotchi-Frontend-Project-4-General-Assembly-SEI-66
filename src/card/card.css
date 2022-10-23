@@ -9,14 +9,19 @@
     margin-top: 2%;
     border-radius: 1em;
     min-height: 40em;
+    max-height: 55em;
     max-width: 30em;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    box-shadow: 5px 5px 5px rgb(162, 162, 162);
+    margin-bottom: 20px;
 }
 
 .card-inner {
-    background-color: #e5c706;
+    /* background-color: #e5c706; */
+    background-image: url("https://bit.ly/3srhQPW");
+    background-size: cover;
     margin: 4%;
     width: 100%;
     height: auto;
@@ -30,12 +35,17 @@
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    display: flex;
+
     
 }
 
 .name-box {
     background-color: transparent;
     height: 4%;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .sprite-box {
@@ -45,6 +55,8 @@
     position: relative; 
     left: 50%;
     transform: translateX(-50%);
+    box-shadow: 3px 3px 3px rgb(162, 162, 162);
+
 }
 
 .buttons-box {
@@ -55,6 +67,8 @@
     position: relative; 
     left: 50%;
     transform: translateX(-50%);
+    box-shadow: 3px 3px 3px rgb(162, 162, 162);
+
 }
 
 .status-box {
