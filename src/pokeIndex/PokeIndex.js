@@ -43,8 +43,8 @@ function renderPokemon(pokeData){
     let pokeName = document.createElement('h4') 
     pokeName.innerText = pokeData.name
      
-    pokeContainer.append(pokeName, pokeNumber);   //appending all details to the pokeContainer div
-    allPokemonContainer.appendChild(pokeContainer);       //appending that pokeContainer div to the main div which will hold all the pokemon cards
+    pokeContainer.append(pokeName, pokeNumber); //appending all details to the pokeContainer div
+    allPokemonContainer.appendChild(pokeContainer); //appending that pokeContainer div to the main div which will hold all the pokemon cards
 }
 
 function createTypes(types, ul){

@@ -26,7 +26,11 @@ export default function Card() {
             <Sprite></Sprite>
           </Box>
           <Box className="card-box-inner buttons-box">
-            <Buttons></Buttons>
+            <Buttons>
+              <img src=''></img>
+
+
+            </Buttons>
           </Box>
           <Box className="card-box-inner status-box">
             <Status></Status>
