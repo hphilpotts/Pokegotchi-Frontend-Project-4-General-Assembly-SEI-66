@@ -73,11 +73,16 @@
 
 }
 
+.pokeBall {
+    width: 25%;
+    background-color: transparent;
+}
+
 .status-box {
     background-color: transparent;
     height: 20%;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-evenly;
 }
 
 .updates-box {
@@ -86,7 +91,8 @@
     flex-direction: column;
 }
 
-.name, .HP {
+.name, .HP, .status, .updates{
     color: #3B4CCA;
     text-shadow: 0.03em 0.03em 0.05em darkgray;
+    font-weight: bolder;
 }

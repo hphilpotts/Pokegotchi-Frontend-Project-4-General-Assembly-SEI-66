@@ -1,8 +1,12 @@
 import React, { setState } from 'react'
 
+import { Typography } from '@mui/material'
+
 export default function HP(props) {
 
   return (
-    <div className='HP'>{ props ? 'HP: ' + props.HP : 'HP: N/A' }</div>
+    <Typography variant="h5">
+      <div className="HP">{ props ? 'HP: ' + props.hp : 'HP: N/A' }</div>
+    </Typography>
   )
 }

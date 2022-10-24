@@ -19,22 +19,13 @@ export default function Card(props) {
   const [pG, setPG] = useState({})
   const [user, setUser] = useState(null)
 
+  // * use effect added to prevent issue on refresh where parent states are lost:
   useEffect(() => {
     const pG = JSON.parse(sessionStorage.getItem('pG')) // get pG item from session storage
     console.log(props.pG)
     console.log(pG)
     setPG(pG) // then set state based on this item retrieved
   }, [])
-
-  // for debug
-  // if (props.user) { // ! there's something going on here, either to do with requiring async functions or unprotected routes
-  // either way, user is being passed as a prop when component is correctly accessed
-  //   console.log("From Card Component:")
-  //   console.log("user prop id: " + props.user.user.id)
-  //   console.log("Auth status: " + props.isAuth)
-  // }
-
-
 
   return (
     <Box className="card-box card-outer" sx={{flexGrow: 1}}>
@@ -44,7 +35,7 @@ export default function Card(props) {
             <HP hp={pG.hp}></HP>
           </Box>
           <Box className="card-box-inner sprite-box">
-            <Sprite></Sprite>
+            <Sprite imgKey={pG.pokedex}></Sprite>
           </Box>
           <Box className="card-box-inner buttons-box">
             <Buttons>
