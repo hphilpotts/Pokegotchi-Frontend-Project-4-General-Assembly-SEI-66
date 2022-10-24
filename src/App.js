@@ -26,9 +26,10 @@ export default function App() {
   const [isAuth, setIsAuth] = useState(false)
   const [user, setUser] = useState({})
   const [message, setMessage] = useState(null)
+  const [pG, setPG] = useState(null)
 
   useEffect(() => {
-
+  try{
     let token = localStorage.getItem("token")
 
     if(token != null){
@@ -37,12 +38,15 @@ export default function App() {
       if(user){
           setIsAuth(true)
           setUser(user)
+          findPG(user.user.id)
       } else if(!user) { // this means there is a problem with token
         localStorage.removeItem("token")
         setIsAuth(false)
       }
     }
-
+  } catch (err) {
+    console.log(err.message)
+  }
   }, [])
 
   const registerHandler = (user) => { // passing the whole user object
@@ -100,6 +104,8 @@ export default function App() {
       // console.log(res.data.pokegotchi)
       console.log('PokeGotchi ObjectId: ' + res.data.pokegotchi[0]._id)
       console.log('PokeGotchi Name: ' + res.data.pokegotchi[0].name)
+      setPG(res.data.pokegotchi[0]) // set pG state to user's PokeGotchi
+      sessionStorage.setItem('pG', JSON.stringify(res.data.pokegotchi[0])) // store user's PokeGotchi in sessionStorage
     })
     .catch(err => {
       console.log("Error getting PokeGotchi:")
@@ -123,8 +129,8 @@ export default function App() {
 
           
           <Routes>
-            <Route path="/card" element={<Card isAuth={isAuth} user={user} findPG={findPG}/>}></Route>
-            <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} findPG={findPG}/>: <Signin login={loginHandler}></Signin>}></Route>
+            <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG}/>}></Route>
+            <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} pG={pG}/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
             <Route path="/pokegotchi" element={<Pokegotchi/>}></Route>
 
