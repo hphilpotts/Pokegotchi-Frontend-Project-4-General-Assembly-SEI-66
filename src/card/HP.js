@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { setState } from 'react'
 
-export default function HP() {
+export default function HP(props) {
+
   return (
-    <div className='HP'>HP</div>
+    <div className='HP'>{ props ? 'HP: ' + props.HP : 'HP: N/A' }</div>
   )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 // MUI imports:
 import { Box } from '@mui/system'
@@ -16,25 +16,32 @@ import HP from './HP'
 
 export default function Card(props) {
 
+  const [pG, setPG] = useState({})
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const pG = JSON.parse(sessionStorage.getItem('pG')) // get pG item from session storage
+    console.log(props.pG)
+    console.log(pG)
+    setPG(pG) // then set state based on this item retrieved
+  }, [])
+
   // for debug
-  console.log("From Card Component:")
-  console.log("user prop id: " + props.user.user.id)
-  console.log("Auth status: " + props.isAuth)
+  // if (props.user) { // ! there's something going on here, either to do with requiring async functions or unprotected routes
+  // either way, user is being passed as a prop when component is correctly accessed
+  //   console.log("From Card Component:")
+  //   console.log("user prop id: " + props.user.user.id)
+  //   console.log("Auth status: " + props.isAuth)
+  // }
 
-  // find pokegotchi from database by user id
-    // * not yet tested
-  const loadPG = () => {
-    props.findPG(props.user.user.id)
-  }
 
-  loadPG()
 
   return (
     <Box className="card-box card-outer" sx={{flexGrow: 1}}>
         <Box className="card-box card-inner">
           <Box className="card-box-inner name-box">
-            <Name></Name>
-            <HP></HP>
+            <Name name={pG.name}></Name>
+            <HP hp={pG.hp}></HP>
           </Box>
           <Box className="card-box-inner sprite-box">
             <Sprite></Sprite>
@@ -47,10 +54,10 @@ export default function Card(props) {
             </Buttons>
           </Box>
           <Box className="card-box-inner status-box">
-            <Status></Status>
+            <Status pG={pG}></Status>
           </Box>
           <Box className="card-box-inner updates-box">
-            <Updates></Updates>
+            <Updates pG={pG}></Updates>
           </Box>
         </Box>
     </Box>

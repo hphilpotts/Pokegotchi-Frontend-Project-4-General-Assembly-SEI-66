@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Name() {
+export default function Name(props) {
   return (
-    <div className='name'>Name</div>
+    <div className='name'>{ props ? props.name : 'Name not found'}</div>
   )
 }

@@ -76,11 +76,14 @@
 .status-box {
     background-color: transparent;
     height: 20%;
+    flex-direction: column;
+    align-items: center;
 }
 
 .updates-box {
     background-color: transparent;
     height: 12%;
+    flex-direction: column;
 }
 
 .name, .HP {

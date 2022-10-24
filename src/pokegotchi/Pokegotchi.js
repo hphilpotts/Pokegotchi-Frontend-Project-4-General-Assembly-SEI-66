@@ -33,7 +33,7 @@ export default function Pokegotchi(props) {
         let allPokemonContainer = document.getElementById('poke-container');
         let pokeContainer = document.createElement("div"); //div will be used to hold the data/details for indiviual pokemon.{}
         pokeContainer.classList.add('ui', 'card');
-        createPokeImage(pokeData.id, pokeContainer);
+        // createPokeImage(pokeData.id, pokeContainer); // ! temporarily commented, if you see this comment I forgot to uncomment it again
         let pokeNumber = document.createElement('p');
         pokeNumber.innerText = `#${pokeData.id}`;
         let pokeName = document.createElement('h4');
