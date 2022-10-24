@@ -85,9 +85,27 @@ export default function App() {
     setMessage("User logged out successfully")
   }
 
-  // * debug:
-  console.log(user)
-  console.log(message)
+  // * find pokegotchi by user id
+  const findPG = id => { // user id is passed in as arg here
+    console.log('Finding your PokeGotchi from the backend...')
+    console.log('User id passed: ' + id)
+    Axios.get(`/pokegotchi/findbyuser?id=${id}`) // TODO protect with auth
+    .then(res => {
+      console.log('...found your PokeGotchi!')
+      // console.log(res.data.pokegotchi)
+      console.log('PokeGotchi ObjectId: ' + res.data.pokegotchi[0]._id)
+      console.log('PokeGotchi Name: ' + res.data.pokegotchi[0].name)
+    })
+    .catch(err => {
+      console.log("Error getting PokeGotchi:")
+      console.log(err)
+    })
+  }
+
+  // * debug - slightly tweaked to minimise console clutter:
+  // if (user.iat) {console.log("App 'user' state id: " + user.user.id)}
+  if (message) {console.log("App 'message' state: " + message)}
+
 
   return (
     <div className="app-div">
@@ -98,8 +116,8 @@ export default function App() {
           <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler}></Header>
 
           <Routes>
-            <Route path="/card" element={<Card/>}></Route>
-            <Route path="/signin" element={isAuth ? <Card/>: <Signin login={loginHandler}></Signin>}></Route>
+            <Route path="/card" element={<Card isAuth={isAuth} user={user} findPG={findPG}/>}></Route>
+            <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} findPG={findPG}/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
           </Routes>
         </Box>

@@ -14,7 +14,21 @@ import Status from './Status'
 import Updates from './Updates'
 import HP from './HP'
 
-export default function Card() {
+export default function Card(props) {
+
+  // for debug
+  console.log("From Card Component:")
+  console.log("user prop id: " + props.user.user.id)
+  console.log("Auth status: " + props.isAuth)
+
+  // find pokegotchi from database by user id
+    // * not yet tested
+  const loadPG = () => {
+    props.findPG(props.user.user.id)
+  }
+
+  loadPG()
+
   return (
     <Box className="card-box card-outer" sx={{flexGrow: 1}}>
         <Box className="card-box card-inner">
