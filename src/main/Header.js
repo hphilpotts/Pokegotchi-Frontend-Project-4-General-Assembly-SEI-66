@@ -17,7 +17,7 @@ import './Main.css'
 export default function Header(props) {
 
   const logoutHandler = e => {
-    props.onLogoutHandler()
+    props.onLogoutHandler(e)
   }
 
   return (
@@ -52,12 +52,14 @@ export default function Header(props) {
           </Typography>
 
           {/* vertial line for seperating Card from auth links */}
-          <div class="vl"></div>
+            {/* -> should this be className? getting an error in the console */}
+          <div className="vl"></div>
 
         {/* User Auth buttons */}
-          <Link className='link' to='/signin'><Button color="inherit">Sign In</Button></Link>
-          <Link className='link' to='/signup'><Button color="inherit" >Sign Up</Button></Link>
-          <Button color="inherit" onClick={logoutHandler}>Logout</Button>
+          {!props.isAuth ? 
+          (<><Link className='link' to='/signin'><Button color="inherit">Sign In</Button></Link>
+          <Link className='link' to='/signup'><Button color="inherit" >Sign Up</Button></Link></>) :
+          <Button color="inherit" onClick={logoutHandler}>Logout</Button>}
         </Toolbar>
       </AppBar>
     </Box>
