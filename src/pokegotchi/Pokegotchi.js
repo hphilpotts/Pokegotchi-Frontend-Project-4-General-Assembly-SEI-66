@@ -5,7 +5,7 @@ import './pokeIndex.css'
     
     const Pokemon = ({ pokemon }) => (
       <div className="card m-2 d-inline-flex text-center pokemon-card" style={{ width: '20rem' }}>
-        <Link to={`/${pokemon.id}`}>
+        <Link to= {`/${pokemon.id}`}>
           <img src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`} className="card-img-top" alt="images" />
           <p>
             

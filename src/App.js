@@ -128,9 +128,9 @@ export default function App() {
             <Route path="/card" element={<Card isAuth={isAuth} user={user} findPG={findPG}/>}></Route>
             <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} findPG={findPG}/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
-            <Route path="/pokegotchi" element={<Pokegotchi/>}></Route>
-            <Route exact path="/" component={PokemonList} />
-            <Route exact path="/:id" component={ShowPokemon} />
+            {/* <Route path="/pokegotchi" element={<Pokegotchi/>}></Route> */}
+            <Route path="/pokegotchi" element={< PokemonList />} />
+            <Route path="/pokegotchi/detail" element={<ShowPokemon/>} />
 
           </Routes>
         </Box>
