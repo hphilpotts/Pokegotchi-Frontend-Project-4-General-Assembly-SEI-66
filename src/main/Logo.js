@@ -1,7 +1,7 @@
 import React from 'react'
 
 // CSS import:
-import './Main.css'
+import './main.css'
 
 // Logo to sit above Header navbar
   // TODO : settle upon a colour scheme once full structure in place

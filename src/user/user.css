@@ -4,6 +4,9 @@
     align-items: center;
     min-height: 50vh;
     max-height: 100vh;
+    margin: auto;
+    max-width: 42em;
+
 }
 
 .form-box-outer {
@@ -13,6 +16,10 @@
     margin-top: 2em;
     border: 1.5em solid #FFDE00;
     border-radius: 1em;
+    box-shadow: 5px 5px 5px rgb(162, 162, 162);
+    /* not sure if background looks better just left white? */
+    background-image: url("https://bit.ly/3srhQPW");
+    background-size: cover;
 
 }
 
