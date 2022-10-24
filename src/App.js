@@ -18,6 +18,7 @@ import Header from './main/Header'
 import Card from './card/Card'
 import Signin from './user/Signin'
 import Signup from './user/Signup'
+import Pokegotchi from './pokegotchi/Pokegotchi'
 
 export default function App() {
 
@@ -118,6 +119,8 @@ export default function App() {
             <Route path="/card" element={<Card/>}></Route>
             <Route path="/signin" element={isAuth ? <Card/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
+            <Route path="/pokegotchi" element={<Pokegotchi/>}></Route>
+
           </Routes>
         </Box>
       </Router>
