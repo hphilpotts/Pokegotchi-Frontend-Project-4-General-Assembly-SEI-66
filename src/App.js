@@ -18,6 +18,7 @@ import Header from './main/Header'
 import Card from './card/Card'
 import Signin from './user/Signin'
 import Signup from './user/Signup'
+import Pokegotchi from './pokegotchi/Pokegotchi'
 
 export default function App() {
 
@@ -77,6 +78,10 @@ export default function App() {
     })
   } // pass below as prop
 
+  // const userProfile = (user.user._id) => {
+  // Axios.get(`user/profile?id=$%{id}`) 
+
+  // }
   const onLogoutHandler = (e) => {
     e.preventDefault()
     localStorage.removeItem("token")
@@ -113,12 +118,16 @@ export default function App() {
         <Box className="app-outer">
 
           <Logo></Logo>
+          {/* {user ? "welcome " + user.user.username : "Hi new person. Please sign in/up"} */}
           <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler}></Header>
 
+          
           <Routes>
             <Route path="/card" element={<Card isAuth={isAuth} user={user} findPG={findPG}/>}></Route>
             <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} findPG={findPG}/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
+            <Route path="/pokegotchi" element={<Pokegotchi/>}></Route>
+
           </Routes>
         </Box>
       </Router>
