@@ -116,7 +116,7 @@ export default function App() {
         <Box className="app-outer">
 
           <Logo></Logo>
-          {user ? "welcome " + user.user.username : "Hi new person. Please sign in/up"}
+          {/* {user ? "welcome " + user.user.username : "Hi new person. Please sign in/up"} */}
           <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler}></Header>
 
           
