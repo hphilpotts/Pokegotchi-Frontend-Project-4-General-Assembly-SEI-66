@@ -15,4 +15,6 @@ const store = configureStore(
   ),
 );
 
-export default store;
+export default configureStore({
+  reducer: {},
+})

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getPokemons, changeFilter } from '../redux/actions/index';
-import Pokemon from '../pokegotchi/Pokegotchi';
+import Pokemon from '../pokegotchi/Pokemon';
 import CategoryFilter from '../pokegotchi/CategoryFilter';
 
 const PokemonList = ({

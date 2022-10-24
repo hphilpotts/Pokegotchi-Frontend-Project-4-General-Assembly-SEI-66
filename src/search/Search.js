@@ -1,5 +1,5 @@
 
-// ! POTENTIAL SEARCH FUNCTION FOR FUTURE USE ONCE POKDEX CREARED
+// ! POTENTIAL SEARCH FUNCTION FOR FUTURE USE ONCE POKeDEX CREARED
 
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
