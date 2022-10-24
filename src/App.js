@@ -21,23 +21,6 @@ import Signup from './user/Signup'
 
 export default function App() {
 
-  // ! note for testing: in some cases, any key can be supplied in inspcect -> application -> local storage to test before backend connected
-
-  // TODO : test signup functionality
-
-  // TODO : test signin functionality
-
-  // TODO : test logout functionality
-    // * note: functionality has been passed as a prop to child component Header
-    // * rather than having the header within App.js as per CodeAlongs
-    // * if there are issues, this may be the cause: see Header component to correct
-    // * worst-case we can remove header component and transplant into App.js directly
-
-  // TODO : implement and test responsive header
-    // * after above todos are completed
-  // TODO : implement and test welcome message
-    // * after above todos are completed
-
   // state variables for auth:
   const [isAuth, setIsAuth] = useState(false)
   const [user, setUser] = useState({})

@@ -27,7 +27,7 @@ export default function Card() {
           </Box>
           <Box className="card-box-inner buttons-box">
             <Buttons>
-              <img src=''></img>
+              {/* <img src=''></img> commented out temporarily due to React warning message */}
 
 
             </Buttons>
