@@ -94,6 +94,10 @@ export default function App() {
     })
   } // pass below as prop
 
+  // const userProfile = (user.user._id) => {
+  // Axios.get(`user/profile?id=$%{id}`) 
+
+  // }
   const onLogoutHandler = (e) => {
     e.preventDefault()
     localStorage.removeItem("token")
@@ -112,8 +116,10 @@ export default function App() {
         <Box className="app-outer">
 
           <Logo></Logo>
+          {user ? "welcome " + user.user.username : "Hi new person. Please sign in/up"}
           <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler}></Header>
 
+          
           <Routes>
             <Route path="/card" element={<Card/>}></Route>
             <Route path="/signin" element={isAuth ? <Card/>: <Signin login={loginHandler}></Signin>}></Route>
