@@ -59,7 +59,9 @@ export default function Header(props) {
           {!props.isAuth ? 
           (<><Link className='link' to='/signin'><Button color="inherit">Sign In</Button></Link>
           <Link className='link' to='/signup'><Button color="inherit" >Sign Up</Button></Link></>) :
-          <Button color="inherit" onClick={logoutHandler}>Logout</Button>}
+          (<><Link className='link' to='/pokegotchi'><Button color="inherit">Pokegotchi</Button></Link>
+
+          <Button color="inherit" onClick={logoutHandler}>Logout</Button></>)} 
         </Toolbar>
       </AppBar>
     </Box>
