@@ -22,23 +22,6 @@ import Pokegotchi from './pokegotchi/Pokegotchi'
 
 export default function App() {
 
-  // ! note for testing: in some cases, any key can be supplied in inspcect -> application -> local storage to test before backend connected
-
-  // TODO : test signup functionality
-
-  // TODO : test signin functionality
-
-  // TODO : test logout functionality
-    // * note: functionality has been passed as a prop to child component Header
-    // * rather than having the header within App.js as per CodeAlongs
-    // * if there are issues, this may be the cause: see Header component to correct
-    // * worst-case we can remove header component and transplant into App.js directly
-
-  // TODO : implement and test responsive header
-    // * after above todos are completed
-  // TODO : implement and test welcome message
-    // * after above todos are completed
-
   // state variables for auth:
   const [isAuth, setIsAuth] = useState(false)
   const [user, setUser] = useState({})
@@ -107,9 +90,27 @@ export default function App() {
     setMessage("User logged out successfully")
   }
 
-  // * debug:
-  console.log(user)
-  console.log(message)
+  // * find pokegotchi by user id
+  const findPG = id => { // user id is passed in as arg here
+    console.log('Finding your PokeGotchi from the backend...')
+    console.log('User id passed: ' + id)
+    Axios.get(`/pokegotchi/findbyuser?id=${id}`) // TODO protect with auth
+    .then(res => {
+      console.log('...found your PokeGotchi!')
+      // console.log(res.data.pokegotchi)
+      console.log('PokeGotchi ObjectId: ' + res.data.pokegotchi[0]._id)
+      console.log('PokeGotchi Name: ' + res.data.pokegotchi[0].name)
+    })
+    .catch(err => {
+      console.log("Error getting PokeGotchi:")
+      console.log(err)
+    })
+  }
+
+  // * debug - slightly tweaked to minimise console clutter:
+  // if (user.iat) {console.log("App 'user' state id: " + user.user.id)}
+  if (message) {console.log("App 'message' state: " + message)}
+
 
   return (
     <div className="app-div">
@@ -122,8 +123,8 @@ export default function App() {
 
           
           <Routes>
-            <Route path="/card" element={<Card/>}></Route>
-            <Route path="/signin" element={isAuth ? <Card/>: <Signin login={loginHandler}></Signin>}></Route>
+            <Route path="/card" element={<Card isAuth={isAuth} user={user} findPG={findPG}/>}></Route>
+            <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} findPG={findPG}/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
             <Route path="/pokegotchi" element={<Pokegotchi/>}></Route>
 
