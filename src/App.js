@@ -18,7 +18,7 @@ import Header from './main/Header'
 import Card from './card/Card'
 import Signin from './user/Signin'
 import Signup from './user/Signup'
-import Pokegotchi from './pokegotchi/Pokegotchi'
+// import Pokegotchi from './pokegotchi/Pokegotchi'
 import PokemonList from './container/PokemonList';
 import ShowPokemon from './container/ShowPokemon';
 
@@ -129,8 +129,8 @@ export default function App() {
             <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} findPG={findPG}/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
             {/* <Route path="/pokegotchi" element={<Pokegotchi/>}></Route> */}
-            <Route path="/pokegotchi" element={< PokemonList />} />
-            <Route path="/pokegotchi/detail" element={<ShowPokemon/>} />
+            <Route path="/pokegotchi" element={<PokemonList />}></Route>
+            <Route path="/pokegotchi/detail" element={<ShowPokemon />}></Route>
 
           </Routes>
         </Box>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './pokeIndex.css'
+
+
     
     const Pokemon = ({ pokemon }) => (
       <div className="card m-2 d-inline-flex text-center pokemon-card" style={{ width: '20rem' }}>
