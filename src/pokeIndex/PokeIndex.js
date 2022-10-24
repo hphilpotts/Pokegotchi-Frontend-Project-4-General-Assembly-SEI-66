@@ -1,8 +1,24 @@
+import React from 'react'
+
+import React from 'react'
+
+export default function PokeIndex() {
+  return (
+    <div>PokeIndex</div>
+  )
+}
+
+
+
 document.addEventListener("DOMContentLoaded", () =>{
 
     let generateBtn = document.querySelector('#generate-pokemon');
     generateBtn.addEventListener('click', renderEverything)
 })
+
+function search(){
+
+}
 
 function renderEverything(){
     let allPokemonContainer = document.querySelector('#poke-container')
