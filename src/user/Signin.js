@@ -14,7 +14,7 @@ import './user.css'
 export default function Signin(props) {
 
   const [newUser, setNewUser] = useState({ // init to empty string (controlled input)
-    email: '',
+    emailAddress: '',
     password: ''
   })
   const [values, setValues] = React.useState({
@@ -54,7 +54,7 @@ export default function Signin(props) {
       <FormGroup>
       <FormControl className='form-ctrl'>
         <InputLabel htmlFor='email-input'>Email Address</InputLabel>
-        <Input id="email-input" aria-describedby="email-helper-text"  name='email' onChange={changeHandler}></Input>
+        <Input id="email-input" aria-describedby="email-helper-text"  name='emailAddress' onChange={changeHandler}></Input>
         {/* <FormHelperText id="email-helper-text">Chuck yer email in here</FormHelperText> */}
       </FormControl><br></br><br></br>
 
@@ -82,7 +82,7 @@ export default function Signin(props) {
           />
       </FormControl><br></br>
       <FormControl className='formctrl'>
-      <Button variant="contained" className='form-button' onClick={loginHandler}>Submit</Button>
+      <Button variant="contained" className='form-button' onClick={loginHandler}>Login</Button>
       </FormControl>
       </FormGroup>
     </Box>

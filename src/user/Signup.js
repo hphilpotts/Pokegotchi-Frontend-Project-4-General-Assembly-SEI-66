@@ -14,8 +14,8 @@ import './user.css'
 export default function SignUp(props) {
 
   const [newUser, setNewUser] = useState({ // These init as empty strings, else a uncontrolled / controlled input error shows
-    email: '',
-    name: '',
+    emailAddress: '',
+    userName: '',
     password: '',
     verifyPassword: ''
   })
@@ -35,7 +35,7 @@ export default function SignUp(props) {
     event.preventDefault();
   };
 
-  const changeHandler = e => {
+  const changeHandler = (e) => {
     const user ={...newUser}
     user[e.target.name] = e.target.value
     console.log(user) // todo remove p-debug
@@ -59,12 +59,12 @@ export default function SignUp(props) {
       <FormGroup>
       <FormControl className='form-ctrl'>
         <InputLabel htmlFor='email-input'>Email Address</InputLabel>
-        <Input id="email-input" aria-describedby="email-helper-text" name="email" onChange={changeHandler}></Input>
+        <Input id="email-input" aria-describedby="email-helper-text" name="emailAddress" onChange={changeHandler}></Input>
         <FormHelperText className='hide-helper' id="email-helper-text">Please enter a valid email adress</FormHelperText>
       </FormControl><br></br>
       <FormControl className='form-ctrl'>
-        <InputLabel htmlFor='name-input'>Name</InputLabel>
-        <Input id="name-input" aria-describedby="email-helper-text" name="name" onChange={changeHandler}></Input>
+        <InputLabel htmlFor='name-input'> choose a username</InputLabel>
+        <Input id="name-input" aria-describedby="email-helper-text" name="userName" onChange={changeHandler}></Input>
         <FormHelperText className='hide-helper' id="email-helper-text">Enter a valid name</FormHelperText>
       </FormControl><br></br>
 
