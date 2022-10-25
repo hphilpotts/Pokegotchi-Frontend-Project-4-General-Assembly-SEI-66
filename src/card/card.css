@@ -96,3 +96,10 @@
     text-shadow: 0.03em 0.03em 0.05em darkgray;
     font-weight: bolder;
 }
+
+.load-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 65%;
+}
