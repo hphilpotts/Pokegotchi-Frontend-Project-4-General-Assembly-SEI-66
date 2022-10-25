@@ -30,7 +30,7 @@ export default function Home(props) {
     <Box className="card-box card-outer" sx={{flexGrow: 1}}>
       <Box className="card-box card-inner">
         <Typography variant="h3">
-            <p className='home-text'>Welcome to the PokeGotchi App!</p>
+            <p className='home-text bold-text'>Welcome to the PokeGotchi App!</p>
         </Typography>
         {!props.isAuth ?
             <Paper>
@@ -54,7 +54,7 @@ export default function Home(props) {
                     { pG ?
                         <> 
                         <Typography variant="h5">
-                            <Link to='/card' className="link blue-text">Click here to see how your {pG.name} is getting on!</Link>
+                            <Link to='/card' className="link blue-text bold-text">Click here to see how your {pG.name} is getting on!</Link>
                         </Typography>
                         <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pG.pokedex}.png`}></img>
                         </>
@@ -67,7 +67,7 @@ export default function Home(props) {
                 </Box>
                 <Box>
                     <Typography variant="h5">
-                        <Link to='/profile' className="link blue-text">Click here to go to your profile page</Link>
+                        <Link to='/profile' className="link blue-text bold-text">Click here to go to your profile page</Link>
                     </Typography>
                 </Box>
             </Box>
