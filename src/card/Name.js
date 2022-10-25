@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function Name() {
+import { Typography } from '@mui/material'
+
+export default function Name(props) {
   return (
-    <div className='name'>Name</div>
+    <Typography variant="h5">
+    <div className='name'>{ props ? props.name : 'Name not found'}</div>
+    </Typography>
   )
 }
