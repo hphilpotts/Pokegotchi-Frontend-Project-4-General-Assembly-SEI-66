@@ -25,10 +25,11 @@ export default function App() {
   // ! note for testing: in some cases, any key can be supplied in inspcect -> application -> local storage to test before backend connected
 
   // TODO : test signup functionality
-
+  //working
   // TODO : test signin functionality
-
+  // Working    
   // TODO : test logout functionality
+  //working
     // * note: functionality has been passed as a prop to child component Header
     // * rather than having the header within App.js as per CodeAlongs
     // * if there are issues, this may be the cause: see Header component to correct
@@ -87,6 +88,7 @@ export default function App() {
         // changing auth states:
         setIsAuth(true)
         setUser(user)
+        setMessage("User logged in sucessfully")
       }
 
     })
@@ -119,14 +121,12 @@ export default function App() {
           <Logo></Logo>
           {/* {user ? "welcome " + user.user.username : "Hi new person. Please sign in/up"} */}
           <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler}></Header>
-
           
           <Routes>
             <Route path="/card" element={<Card/>}></Route>
             <Route path="/signin" element={isAuth ? <Card/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
             <Route path="/pokegotchi" element={<Pokegotchi/>}></Route>
-
           </Routes>
         </Box>
       </Router>
