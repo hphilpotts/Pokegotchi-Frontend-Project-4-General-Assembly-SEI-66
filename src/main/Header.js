@@ -8,13 +8,25 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
 
+// React Router DOM import:
 import { Link } from 'react-router-dom'
 
 // CSS import:
 import './Main.css'
 
 export default function Header(props) {
+
+  const [anchorElement, setAnchorElement] = React.useState(null)
+  const open = Boolean(anchorElement)
+  const handleMenuClick = e => {
+    setAnchorElement(e.currentTarget)
+  }
+  const handleMenuClose = () => {
+    setAnchorElement(null)
+  }
 
   const logoutHandler = e => {
     props.onLogoutHandler(e)
@@ -32,7 +44,7 @@ export default function Header(props) {
         <Toolbar sx={{
           backgroundColor: "#FFDE00"
         }}
-        className="yellow-text header-box"
+        className="blue-text header-box"
         >
 
         {/* Menu here - styling only, not yet implemented */}
@@ -42,9 +54,30 @@ export default function Header(props) {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            id="menu-button"
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleMenuClick}    
           >
             <MenuIcon />
           </IconButton>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorElement}
+            open={open}
+            onClose={handleMenuClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
+            <Link to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
+            <Link to="/profile"><MenuItem onClick={handleMenuClose}>My Profile</MenuItem></Link>
+            <Link to="/card"><MenuItem onClick={handleMenuClose}>My PokeGotchi</MenuItem></Link>
+            <Link to="/pokegotchi"><MenuItem onClick={handleMenuClose}>All PokeGotchi</MenuItem></Link>
+            <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+          </Menu>
+
 
         {/* Profile link, sits on left of toolbar */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

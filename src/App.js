@@ -15,11 +15,14 @@ import jwt_decode from 'jwt-decode'
 // Component imports:
 import Logo from './main/Logo'
 import Header from './main/Header'
+import Home from './main/Home'
 import Card from './card/Card'
 import Signin from './user/Signin'
 import Signup from './user/Signup'
 import Pokedex from './pokegotchi/Pokedex'
 
+import User from './user/User'
+// import Pokegotchi from './pokegotchi/Pokegotchi'
 
 export default function App() {
 
@@ -31,6 +34,7 @@ export default function App() {
 
   useEffect(() => {
   try{
+    console.log('Seeing if there is a user...')
     let token = localStorage.getItem("token")
 
     if(token != null){
@@ -40,6 +44,7 @@ export default function App() {
           setIsAuth(true)
           setUser(user)
           findPG(user.user.id)
+          sessionStorage.setItem('userId', JSON.stringify(user.user.id)) // store user's userId in sessionStorage
       } else if(!user) { // this means there is a problem with token
         localStorage.removeItem("token")
         setIsAuth(false)
@@ -77,7 +82,6 @@ export default function App() {
         setUser(user)
         setMessage("User logged in sucessfully")
       }
-
     })
     .catch(error => {
       console.log(error) // else log the error
@@ -130,10 +134,15 @@ export default function App() {
           <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler}></Header>
           
           <Routes>
+            <Route path='/' element={<Home isAuth={isAuth} user={user} pG={pG} findPG={findPG}/>}></Route>
             <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG}/>}></Route>
             <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} pG={pG}/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
             <Route path="/pokedex" element={<Pokedex />}></Route>
+            <Route path='/profile' element={<User isAuth={isAuth} user={user} pG={pG}/>}></Route>
+            {/* <Route path="/pokegotchi" element={<Pokegotchi/>}></Route> */}
+
+            {/* <Route path="/pokegotchi" element={<Pokegotchi/>}></Route> */}
           </Routes>
         </Box>
       </Router>
