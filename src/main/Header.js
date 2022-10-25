@@ -33,6 +33,7 @@ export default function Header(props) {
   }
 
   return (
+    <div className='header-wrapper'>
     <Box sx={{ 
       flexGrow: 1,
       backgroundColor: "#FFDE00"
@@ -71,16 +72,15 @@ export default function Header(props) {
               'aria-labelledby': 'basic-button',
             }}
           >
-            <Link to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
-            <Link to="/profile"><MenuItem onClick={handleMenuClose}>My Profile</MenuItem></Link>
-            <Link to="/card"><MenuItem onClick={handleMenuClose}>My PokeGotchi</MenuItem></Link>
-            <Link to="/pokegotchi"><MenuItem onClick={handleMenuClose}>All PokeGotchi</MenuItem></Link>
-            <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+            <Link className="link blue-text" to="/profile"><MenuItem onClick={handleMenuClose}>My Profile</MenuItem></Link>
+            <Link className="link blue-text" to="/card"><MenuItem onClick={handleMenuClose}>My PokeGotchi</MenuItem></Link>
+            <Link className="link blue-text" to="/pokegotchi"><MenuItem onClick={handleMenuClose}>All PokeGotchi</MenuItem></Link>
+            <Link className="link blue-text" to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
           </Menu>
 
 
         {/* Profile link, sits on left of toolbar */}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
             <Link to='/card' className='link'>My Pokégotchi</Link>
           </Typography>
 
@@ -92,11 +92,20 @@ export default function Header(props) {
           {!props.isAuth ? 
           (<><Link className='link' to='/signin'><Button color="inherit">Sign In</Button></Link>
           <Link className='link' to='/signup'><Button color="inherit" >Sign Up</Button></Link></>) :
+          (<>
+            {/* <Link className='link' to='/pokegotchi'><Button color="inherit">Pokegotchi</Button></Link> moved to menu */}
+            <Typography variant="h7" sx={{ flexGrow: 1 }} className="text-right">
+              {/* <Button color="inherit" className="link" onClick={logoutHandler}>Logout</Button> */}
+              <Link className='link' onClick={logoutHandler}>Logout</Link>
+            </Typography>
+          </>)} 
           (<><Link className='link' to='/pokedex'><Button color="inherit">Pokegotchi</Button></Link>
           <Button color="inherit" onClick={logoutHandler}>Logout</Button></>)} 
+              
           {/* tesing React MUI alerts - to be added to to Sign in/Sign up, Login */}
         </Toolbar>
       </AppBar>
     </Box>
+    </div>
   );
 }

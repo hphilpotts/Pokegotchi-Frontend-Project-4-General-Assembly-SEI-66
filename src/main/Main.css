@@ -16,8 +16,15 @@
 
 /* || Header */
 
+.header-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .header-box {
-    margin: auto;
+    /* margin: auto; */
+    margin-left: 0%;
+    margin-right: 0%;
     max-width: 30em;
     border-radius: 0.5em;
 
@@ -33,11 +40,13 @@
 }
 
 .vl {
-    border-left: 1px solid #3B4CCA;
-    height: 55px;
+    /* ? does this look cleaner without the line now that most menu items are in the dropdown ? */
+    /* border-left: 1px solid #3B4CCA; */
+    height: 85%;
     position: absolute;
     left: 50%;
-    margin-left: -3px;
+    /* ? or even slightly offset ? */
+    /* margin-left: 5%; */
     top: 5PX;
 }
 
@@ -80,14 +89,15 @@
 }
 
 .home-box {
-    height: 60%;
+    height: 55%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    /* background: white; */
+    background: #ffdd0053;
     border: 1.3em solid #FFDE00;
     border-radius: 1em;
     box-shadow: 0.2em 0.2em 0.5em rgb(75, 75, 75);
+    padding: 0.5em;
 }
 
 /* || Text */
@@ -97,4 +107,18 @@
 
 .blue-text {
     color: #3B4CCA
+}
+
+.bold-text {
+    font-weight: bold !important;
+    text-shadow: #FFDE00 0.08em 0.08em 0.08em !important;
+}
+
+.menu {
+    background-color: #3B4CCA !important;
+}
+
+.text-right {
+    text-align: right;
+    padding-right: 0.5em;
 }
