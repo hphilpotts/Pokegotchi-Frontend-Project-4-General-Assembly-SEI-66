@@ -25,6 +25,7 @@ export default function Card(props) {
   useEffect(() => {
     console.log('Checking for pG prop from App.js state. If found, set pG state to pG prop and pass on. Logging props.pG:')
     console.log(props.pG) // Debug: First, check if there are props and log, if not then log undefined.
+    setPG(props.pG) // If prop found, set pG state, if not this will remain falsy, triggering line below
     if (!props.pG) {// if undefined, look to session storage
       console.log('...props.pG not found, either null, or undefined. Looking in Session Storage, logging pG item:')
       const pG = JSON.parse(sessionStorage.getItem('pG')) // get pG item from session storage

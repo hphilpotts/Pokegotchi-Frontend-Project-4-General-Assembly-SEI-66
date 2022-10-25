@@ -15,9 +15,11 @@ import jwt_decode from 'jwt-decode'
 // Component imports:
 import Logo from './main/Logo'
 import Header from './main/Header'
+import Home from './main/Home'
 import Card from './card/Card'
 import Signin from './user/Signin'
 import Signup from './user/Signup'
+import User from './user/User'
 // import Pokegotchi from './pokegotchi/Pokegotchi'
 
 export default function App() {
@@ -129,9 +131,11 @@ export default function App() {
           <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler}></Header>
           
           <Routes>
+            <Route path='/' element={<Home/>}></Route>
             <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG}/>}></Route>
             <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} pG={pG}/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
+            <Route path='/profile' element={<User isAuth={isAuth} user={user} pG={pG}/>}></Route>
             {/* <Route path="/pokegotchi" element={<Pokegotchi/>}></Route> */}
 
             {/* <Route path="/pokegotchi" element={<Pokegotchi/>}></Route> */}
