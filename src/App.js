@@ -32,6 +32,7 @@ export default function App() {
 
   useEffect(() => {
   try{
+    console.log('Seeing if there is a user...')
     let token = localStorage.getItem("token")
 
     if(token != null){

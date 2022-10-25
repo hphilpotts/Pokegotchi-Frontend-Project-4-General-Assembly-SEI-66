@@ -4,17 +4,19 @@ import React from 'react'
 import { Box } from '@mui/system'
 
 // CSS import:
-import './user.css'
+// import './< your custom css file >.css'
+// * css file should be within the same folder as this component, else change './' at start!
 
 export default function User() {
-
-  
 
   return (
       <Box className="card-box card-outer" sx={{flexGrow: 1}}>
         <Box className="card-box card-inner">
-          <Box className='user-box'>
+
+          {/* placeholder:  */}
+          <Box className='content-box'>
           </Box>
+
         </Box>
       </Box>
   )
