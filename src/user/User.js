@@ -12,15 +12,23 @@ import './user.css'
 
 export default function User(props) {
 
+  const { passedData } = props
+
   const [isLoading, setIsLoading] = useState(true)
-  // const [userProfile, setUserProfile] = useState({})
+  const [userId, setUserId] = useState(null)
+  const [userProfile, setUserProfile] = useState({})
 
   useEffect(() => {
     setTimeout(function () {
-      console.log("I've set a 1.5 second delay to allow everything to load")
+      console.log("...waited for 1.5s...")
       setIsLoading(false)
     }, 1500)
+    const userId = JSON.parse(sessionStorage.getItem('userId')) // get userId item from session storage
+    console.log(userId)
+    loadUserDetail(userId)
   }, [])
+
+
 
   // GET User detail from Database using App.js user state as id parameter:
   const loadUserDetail = id => {
@@ -29,7 +37,7 @@ export default function User(props) {
     .then(res => {
       let user = res.data.user
       console.log('Loaded User info:')
-      console.log(user)
+      setUserProfile(user)
     })
     .catch(err => {
       console.log('Error retrieving User details from the Database, please try again.')
@@ -49,13 +57,21 @@ export default function User(props) {
     )
   }
 
-  loadUserDetail(props.user.user.id)
+  console.log(userProfile)
+
+  const dataData = new Date(userProfile.createdAt).toString().split(' ').slice(1, 4 ).join(' ')
 
   return (
       <Box className="card-box card-outer" sx={{flexGrow: 1}}>
         <Box className="card-box card-inner">
           <Box className='user-box'>
-            <span>{props.user.user.id}</span>
+            {/* <span>{props.user.user.id}</span> */}
+            <p>Username:</p>
+            <p>{userProfile.userName}</p>
+            <p>Email:</p>
+            <p>{userProfile.emailAddress}</p>
+            <p>User since:</p>
+            <p>{dataData}</p>
           </Box>
         </Box>
       </Box>

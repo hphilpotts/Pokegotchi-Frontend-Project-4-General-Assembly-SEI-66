@@ -42,6 +42,7 @@ export default function App() {
           setIsAuth(true)
           setUser(user)
           findPG(user.user.id)
+          sessionStorage.setItem('userId', JSON.stringify(user.user.id)) // store user's userId in sessionStorage
       } else if(!user) { // this means there is a problem with token
         localStorage.removeItem("token")
         setIsAuth(false)
@@ -79,7 +80,6 @@ export default function App() {
         setUser(user)
         setMessage("User logged in sucessfully")
       }
-
     })
     .catch(error => {
       console.log(error) // else log the error
