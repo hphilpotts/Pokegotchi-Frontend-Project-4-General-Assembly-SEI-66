@@ -131,7 +131,7 @@ export default function App() {
           <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler}></Header>
           
           <Routes>
-            <Route path='/' element={<Home/>}></Route>
+            <Route path='/' element={<Home isAuth={isAuth} user={user} pG={pG} findPG={findPG}/>}></Route>
             <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG}/>}></Route>
             <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} pG={pG}/>: <Signin login={loginHandler}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>

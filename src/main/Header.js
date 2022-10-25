@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
+// React Router DOM import:
 import { Link } from 'react-router-dom'
 
 // CSS import:
@@ -32,7 +33,7 @@ export default function Header(props) {
         <Toolbar sx={{
           backgroundColor: "#FFDE00"
         }}
-        className="yellow-text header-box"
+        className="blue-text header-box"
         >
 
         {/* Menu here - styling only, not yet implemented */}
