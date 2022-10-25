@@ -83,3 +83,8 @@
     height: auto;
     padding: 4%;
 }
+
+.user-box {
+    background-color: #3B4CCA;
+    height: 100%;
+}

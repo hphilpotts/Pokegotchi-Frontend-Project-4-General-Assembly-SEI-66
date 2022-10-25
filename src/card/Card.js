@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 // MUI imports:
 import { Box } from '@mui/system'
+import { CircularProgress } from '@mui/material'
 
 // CSS imports:
 import './card.css'
@@ -16,6 +17,7 @@ import HP from './HP'
 
 export default function Card(props) {
 
+  const [isLoading, setIsLoading] = useState(true)
   const [pG, setPG] = useState({})
   const [user, setUser] = useState(null)
 
@@ -23,6 +25,10 @@ export default function Card(props) {
     // If the user performs these actions, the states in parent 'App.js' a cleared and the pG prop passed to this component is 'null'.
     // ! If this approach causes problems later on, try instead executing same API call from App.js ('findPG') within useEffect here!
   useEffect(() => {
+    setTimeout(function () {
+      console.log("I've set a 1.5 second delay to allow everything to load")
+      setIsLoading(false)
+    }, 1500)
     console.log('Checking for pG prop from App.js state. If found, set pG state to pG prop and pass on. Logging props.pG:')
     console.log(props.pG) // Debug: First, check if there are props and log, if not then log undefined.
     setPG(props.pG) // If prop found, set pG state, if not this will remain falsy, triggering line below
@@ -47,6 +53,18 @@ export default function Card(props) {
       }
     } 
   }, [])
+
+  if(isLoading) {
+    return (
+      <Box className="card-box card-outer" sx={{flexGrow: 1}}>
+        <Box className="card-box card-inner load-box">
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <CircularProgress />
+          </Box>
+        </Box>
+      </Box>
+    )
+  }
 
   return (
     <Box className="card-box card-outer" sx={{flexGrow: 1}}>
