@@ -1,10 +1,5 @@
 /* || -- CSS for main components -- */
 
-/* || Text */
-.yellow-text {
-    color: #3B4CCA
-}
-
 /* || Logo */
 .logo-div {
     display: flex;
@@ -44,4 +39,62 @@
     left: 50%;
     margin-left: -3px;
     top: 5PX;
+}
+
+/* For 'Home.js' card formatting: */
+
+.card-box {
+    height: 100%;
+  }
+
+.card-outer {
+    background-color: #FFDE00;
+    height: 79vh;
+    display: flex;
+    margin-top: 2%;
+    border-radius: 1em;
+    min-height: 40em;
+    max-height: 55em;
+    max-width: 30em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 5px 5px 5px rgb(162, 162, 162);
+    margin-bottom: 20px;
+}
+
+.card-inner {
+    /* background-color: #e5c706; */
+    background-image: url("https://bit.ly/3srhQPW");
+    background-size: cover;
+    margin: 4%;
+    width: 100%;
+    height: auto;
+    padding: 4%;
+    text-align: center;
+}
+
+.home-text {
+    color: #3B4CCA;
+    font-weight: bolder;
+}
+
+.home-box {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* background: white; */
+    border: 1.3em solid #FFDE00;
+    border-radius: 1em;
+    box-shadow: 0.2em 0.2em 0.5em rgb(75, 75, 75);
+}
+
+/* || Text */
+.yellow-text {
+    color: #FFDE00
+}
+
+.blue-text {
+    color: #3B4CCA
 }

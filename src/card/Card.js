@@ -19,12 +19,33 @@ export default function Card(props) {
   const [pG, setPG] = useState({})
   const [user, setUser] = useState(null)
 
-  // * use effect added to prevent issue on refresh where parent states are lost:
+  // * Here useEffect is used to prevent crashes triggered by page refresh or manual url entry to card/ route:
+    // If the user performs these actions, the states in parent 'App.js' a cleared and the pG prop passed to this component is 'null'.
+    // ! If this approach causes problems later on, try instead executing same API call from App.js ('findPG') within useEffect here!
   useEffect(() => {
-    const pG = JSON.parse(sessionStorage.getItem('pG')) // get pG item from session storage
-    console.log(props.pG)
-    console.log(pG)
-    setPG(pG) // then set state based on this item retrieved
+    console.log('Checking for pG prop from App.js state. If found, set pG state to pG prop and pass on. Logging props.pG:')
+    console.log(props.pG) // Debug: First, check if there are props and log, if not then log undefined.
+    setPG(props.pG) // If prop found, set pG state, if not this will remain falsy, triggering line below
+    if (!props.pG) {// if undefined, look to session storage
+      console.log('...props.pG not found, either null, or undefined. Looking in Session Storage, logging pG item:')
+      const pG = JSON.parse(sessionStorage.getItem('pG')) // get pG item from session storage
+      if (pG) {
+        console.log(pG)
+        console.log("'pG' item found! Setting pG state to pG item from Session Storage and passing on.")
+        setPG(pG) // then set state based on this item retrieved
+      } else{
+        console.log('Did not find pG prop or pG item in Session Storage, setting pG to placeholder object:')
+        setPG({
+          'name': 'Pokegotchi not chosen!',
+          'hp': 0,
+          'pokedex': 0,
+          'age' : 0,
+          'cleanLevel': 0,
+          'foodLevel': 0,
+          'playLevel': 0
+        })
+      }
+    } 
   }, [])
 
   return (
