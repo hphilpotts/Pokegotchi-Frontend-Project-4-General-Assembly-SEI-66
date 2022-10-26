@@ -98,10 +98,7 @@ export default function Header(props) {
               {/* <Button color="inherit" className="link" onClick={logoutHandler}>Logout</Button> */}
               <Link className='link' onClick={logoutHandler}>Logout</Link>
             </Typography>
-          </>)} 
-          (<><Link className='link' to='/pokedex'><Button color="inherit">Pokegotchi</Button></Link>
-          <Button color="inherit" onClick={logoutHandler}>Logout</Button></>)} 
-              
+          </>)}               
           {/* tesing React MUI alerts - to be added to to Sign in/Sign up, Login */}
         </Toolbar>
       </AppBar>
