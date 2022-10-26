@@ -45,10 +45,10 @@ export default function Signin(props) {
   }
 
   return (
-    <div className='form-holder'>
-      <div className='form-box-outer'>
+    <div className='card-box card-outer'>
+      <div className='card-box card-inner'>
       <Typography variant='h4' className='form-title'>Sign in</Typography>
-    <Box className='form-box' sx={{
+    <Box className='user-form-box-small' sx={{
       boxShadow: 3
     }}>
       <FormGroup>

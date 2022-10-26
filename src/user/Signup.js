@@ -51,10 +51,10 @@ export default function SignUp(props) {
   }
 
   return (
-    <div className='form-holder'>
-      <div className='form-box-outer'>
+    <div className='card-box card-outer'>
+      <div className='card-box card-inner'>
       <Typography variant='h4' className='form-title'>Sign up</Typography>
-    <Box className='form-box' sx={{
+    <Box className='user-form-box' sx={{
       boxShadow: 3
     }}>
       <FormGroup>
