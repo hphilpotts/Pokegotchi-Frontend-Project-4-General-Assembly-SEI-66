@@ -79,7 +79,6 @@ export default function Header(props) {
               <Link className="link blue-text" to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
           </Menu>)
           :
-          {/* show this menu if user is not authorised */}
           (<Menu
             id="basic-menu"
             anchorEl={anchorElement}
