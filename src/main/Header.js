@@ -63,7 +63,8 @@ export default function Header(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Menu
+          { props.isAuth ?
+          (<Menu 
             id="basic-menu"
             anchorEl={anchorElement}
             open={open}
@@ -72,20 +73,28 @@ export default function Header(props) {
               'aria-labelledby': 'basic-button',
             }}
           >
-            { props.isAuth ?
-            (<>
               <Link className="link blue-text" to="/profile"><MenuItem onClick={handleMenuClose}>My Profile</MenuItem></Link>
               <Link className="link blue-text" to="/card"><MenuItem onClick={handleMenuClose}>My PokeGotchi</MenuItem></Link>
               <Link className="link blue-text" to="/pokegotchi"><MenuItem onClick={handleMenuClose}>All PokeGotchi</MenuItem></Link>
-            </>) : (<>
+              <Link className="link blue-text" to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
+          </Menu>)
+          :
+          {/* show this menu if user is not authorised */}
+          (<Menu
+            id="basic-menu"
+            anchorEl={anchorElement}
+            open={open}
+            onClose={handleMenuClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
               <Link className="link blue-text" to="/signup"><MenuItem onClick={handleMenuClose}>Sign Up</MenuItem></Link>
               <Link className="link blue-text" to="/signin"><MenuItem onClick={handleMenuClose}>Sign In</MenuItem></Link>
               <Link className="link blue-text" to="/pokegotchi"><MenuItem onClick={handleMenuClose}>All PokeGotchi</MenuItem></Link>
-            </>)}
-            <Link className="link blue-text" to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
-
-          </Menu>
-
+              <Link className="link blue-text" to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
+          </Menu>)
+          }
 
         {/* Profile link, sits on left of toolbar */}
           { props.isAuth ?
