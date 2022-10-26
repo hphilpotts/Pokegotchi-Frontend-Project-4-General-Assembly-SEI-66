@@ -95,6 +95,8 @@ export default function App() {
     localStorage.removeItem("token")
     setIsAuth(false)
     setUser(null)
+    console.log('Clearing session storage...')
+    sessionStorage.clear()
     setMessage("User logged out successfully")
   }
 

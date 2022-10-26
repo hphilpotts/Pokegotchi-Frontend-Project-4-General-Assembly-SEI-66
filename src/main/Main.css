@@ -11,7 +11,8 @@
     /* max-height: 5em; */
     margin-top: 2%;
     margin-bottom: 2%;
-    max-width: 30em; /* * set max-width to avoid screen overlap on mobile, can change back if preferred! */
+    width: 30em;
+    max-width: 100vw; /* * set max-width to avoid screen overlap on mobile, can change back if preferred! */
 }
 
 /* || Header */
