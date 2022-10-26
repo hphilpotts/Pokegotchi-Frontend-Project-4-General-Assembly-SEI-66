@@ -42,6 +42,7 @@ export default function App() {
       let user = jwt_decode(token);
 
       if(user){
+        console.log('there is a user')
           setIsAuth(true)
           setUser(user)
           findPG(user.user.id)
@@ -101,19 +102,23 @@ export default function App() {
     setUser(null)
     console.log('Clearing session storage...')
     sessionStorage.clear()
+    console.log('Clearing Local Storage...')
+    localStorage.clear()
     setMessage("User logged out successfully")
   }
 
   // * find pokegotchi by user id
-  const findPG = id => { // user id is passed in as arg here
+  const findPG = async id => { // user id is passed in as arg here
     console.log('Finding your PokeGotchi from the backend...')
     console.log('User id passed: ' + id)
-    Axios.get(`/pokegotchi/findbyuser?id=${id}`) // TODO protect with auth
+    await Axios.get(`/pokegotchi/findbyuser?id=${id}`) // TODO protect with auth
     .then(res => {
+      console.log(id)
       console.log('...found your PokeGotchi!')
       // console.log(res.data.pokegotchi)
       console.log('PokeGotchi ObjectId: ' + res.data.pokegotchi[0]._id)
       console.log('PokeGotchi Name: ' + res.data.pokegotchi[0].name)
+      console.log('PokeGotchi user:' + res.data.pokegotchi[0].user[0])
       setPG(res.data.pokegotchi[0]) // set pG state to user's PokeGotchi
       sessionStorage.setItem('pG', JSON.stringify(res.data.pokegotchi[0])) // store user's PokeGotchi in sessionStorage
     })
@@ -125,7 +130,7 @@ export default function App() {
 
   // * debug - slightly tweaked to minimise console clutter:
   // if (user.iat) {console.log("App 'user' state id: " + user.user.id)}
-  if (message) {console.log("App 'message' state: " + message)}
+  if (message) {console.log("Message from App.js: " + message)}
 
 
   return (

@@ -39,9 +39,8 @@ export default function Home(props) {
         </Box>
         {!props.isAuth ?
              <Box className='home-box'>   
-                <p>{props.isAuth}</p>
                 <Box>
-                    <Button variant='contained'><Link to='/signin' className="link">Sign In</Link></Button>
+                    <Button variant='contained'><Link to='/signin' className="link">Sign In Here</Link></Button>
                 </Box>
                 <Box>
                     <Typography variant="h7">
@@ -53,23 +52,22 @@ export default function Home(props) {
             <Box className='home-box'>
                 <Box>
                     { pG ?
-                        <> 
-                        <Typography variant="h5">
-                            <Link to='/card' className="link blue-text bold-text">Click here to see how your {pG.name} is getting on!</Link>
-                        </Typography>
-                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pG.pokedex}.png`}></img>
+                        <>
+                        <Box>
+                            <Typography variant='h7'>
+                                <p className='blue-text'>
+                                Hint: Click on {pG.name} to say hello!
+                                </p>
+                            </Typography>
+                        </Box>
+                        <Box>
+                        <Link to='/card' className="link"><img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pG.pokedex}.png`}></img></Link>
+                        </Box>
                         </>
-                        :
-                        <Typography variant="h5">
-                            {/* TODO : set this to select pokegotchi */}
-                            <Link to='/'className="link blue-text">You've not chosen a PokeGotchi yet! Click here to choose one!</Link>
-                        </Typography>
+                        :<>
+                            <Link to='/profile' className='link'><Button>Go to Profile</Button></Link>
+                        </>
                     }
-                </Box>
-                <Box>
-                    <Typography variant="h5">
-                        <Link to='/profile' className="link blue-text bold-text">Click here to go to your profile page</Link>
-                    </Typography>
                 </Box>
             </Box>
         }
