@@ -31,7 +31,6 @@
 }
 
 .form-button {
-    width: 60%;
     min-width: 5em;
     margin-top: 2em;
     /* don't look at this nasty bit of css below please */ 
@@ -84,6 +83,8 @@
     height: auto;
     padding: 4%;
 }
+
+/* TODO - refactor the below... */
 
 .user-box {
     height: 90%;

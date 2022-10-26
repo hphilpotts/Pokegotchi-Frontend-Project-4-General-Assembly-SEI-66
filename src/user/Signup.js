@@ -9,10 +9,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import { useNavigate } from 'react-router-dom';
+
 import './user.css'
 
 
 export default function SignUp(props) {
+
+  const navigate = useNavigate()
 
   const [newUser, setNewUser] = useState({ // These init as empty strings, else a uncontrolled / controlled input error shows
     emailAddress: '',
@@ -48,6 +52,7 @@ export default function SignUp(props) {
       // ? maybe add a cheeky error message or helpertext ?
 
     props.register(newUser)
+    navigate('/')
   }
 
   return (

@@ -82,6 +82,7 @@ export default function App() {
         setIsAuth(true)
         setUser(user)
         setMessage("User logged in sucessfully")
+        findPG(user.user.id) // ensures that pG is found when loginHandler runs, else there is a delay leading to bugs!
       }
     })
     .catch(error => {

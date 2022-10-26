@@ -72,17 +72,28 @@ export default function Header(props) {
               'aria-labelledby': 'basic-button',
             }}
           >
-            <Link className="link blue-text" to="/profile"><MenuItem onClick={handleMenuClose}>My Profile</MenuItem></Link>
-            <Link className="link blue-text" to="/card"><MenuItem onClick={handleMenuClose}>My PokeGotchi</MenuItem></Link>
-            <Link className="link blue-text" to="/pokegotchi"><MenuItem onClick={handleMenuClose}>All PokeGotchi</MenuItem></Link>
+            { props.isAuth ?
+            (<>
+              <Link className="link blue-text" to="/profile"><MenuItem onClick={handleMenuClose}>My Profile</MenuItem></Link>
+              <Link className="link blue-text" to="/card"><MenuItem onClick={handleMenuClose}>My PokeGotchi</MenuItem></Link>
+              <Link className="link blue-text" to="/pokegotchi"><MenuItem onClick={handleMenuClose}>All PokeGotchi</MenuItem></Link>
+            </>) : (<>
+              <Link className="link blue-text" to="/signup"><MenuItem onClick={handleMenuClose}>Sign Up</MenuItem></Link>
+              <Link className="link blue-text" to="/signin"><MenuItem onClick={handleMenuClose}>Sign In</MenuItem></Link>
+              <Link className="link blue-text" to="/pokegotchi"><MenuItem onClick={handleMenuClose}>All PokeGotchi</MenuItem></Link>
+            </>)}
             <Link className="link blue-text" to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
+
           </Menu>
 
 
         {/* Profile link, sits on left of toolbar */}
-          <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
+          { props.isAuth ?
+          (<Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
             <Link to='/card' className='link'>My Pokégotchi</Link>
-          </Typography>
+          </Typography>) :
+          <></>
+          }
 
           {/* vertial line for seperating Card from auth links */}
             {/* -> should this be className? getting an error in the console */}
@@ -96,7 +107,7 @@ export default function Header(props) {
             {/* <Link className='link' to='/pokegotchi'><Button color="inherit">Pokegotchi</Button></Link> moved to menu */}
             <Typography variant="h7" sx={{ flexGrow: 1 }} className="text-right">
               {/* <Button color="inherit" className="link" onClick={logoutHandler}>Logout</Button> */}
-              <Link className='link' onClick={logoutHandler}>Logout</Link>
+              <Link className='link' onClick={logoutHandler} to="/signin">Logout</Link>
             </Typography>
           </>)}               
           {/* tesing React MUI alerts - to be added to to Sign in/Sign up, Login */}
