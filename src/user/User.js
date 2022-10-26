@@ -25,17 +25,17 @@ export default function User(props) {
   const [userId, setUserId] = useState(null)
   const [userProfile, setUserProfile] = useState({})
   const [isEdit, setIsEdit] = useState(false)
+  const [editProfile, setEditProfile] = useState({})
   const [openDeleteDialogue, setOpenDeleteDialogue] = useState(false) // for confirm delete dialoge box
 
   useEffect(() => {
-    sessionStorage.setItem('userId', JSON.stringify(props.user.user.id)) // store user's userId in sessionStorage
     setTimeout(function () {
       console.log("...waited for 1s...")
       setIsLoading(false)
     }, 1000)
     const userId = JSON.parse(sessionStorage.getItem('userId')) // get userId item from session storage
-    // console.log(userId)
     loadUserDetail(userId)
+    getEditUser(userId)
   }, [])
 
 
@@ -60,7 +60,6 @@ export default function User(props) {
     // show edit form:
   const handleEditClick = () => {
     setIsEdit(true)
-    getEditUser(userId)
   }
 
     // hide edit form:
@@ -75,6 +74,7 @@ export default function User(props) {
     .then(res => {
       console.log('logging user edit get:')
       console.log(res)
+      setEditProfile(res.data.user)
     })
     .catch(err => {
       console.log(err)
