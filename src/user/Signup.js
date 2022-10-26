@@ -9,10 +9,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import { useNavigate } from 'react-router-dom';
+
 import './user.css'
 
 
 export default function SignUp(props) {
+
+  const navigate = useNavigate()
 
   const [newUser, setNewUser] = useState({ // These init as empty strings, else a uncontrolled / controlled input error shows
     emailAddress: '',
@@ -48,13 +52,14 @@ export default function SignUp(props) {
       // ? maybe add a cheeky error message or helpertext ?
 
     props.register(newUser)
+    navigate('/')
   }
 
   return (
-    <div className='form-holder'>
-      <div className='form-box-outer'>
+    <div className='card-box card-outer'>
+      <div className='card-box card-inner'>
       <Typography variant='h4' className='form-title'>Sign up</Typography>
-    <Box className='form-box' sx={{
+    <Box className='user-form-box' sx={{
       boxShadow: 3
     }}>
       <FormGroup>

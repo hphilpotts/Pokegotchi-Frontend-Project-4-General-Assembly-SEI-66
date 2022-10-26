@@ -5,7 +5,7 @@ import Axios from 'axios'
 
 // MUI imports:
 import { Box } from '@mui/system'
-import { CircularProgress } from '@mui/material'
+import { CircularProgress, Button } from '@mui/material'
 
 // CSS import:
 import './user.css'
@@ -66,12 +66,12 @@ export default function User(props) {
         <Box className="card-box card-inner">
           <Box className='user-box'>
             {/* <span>{props.user.user.id}</span> */}
-            <p>Username:</p>
-            <p>{userProfile.userName}</p>
-            <p>Email:</p>
-            <p>{userProfile.emailAddress}</p>
-            <p>User since:</p>
-            <p>{dataData}</p>
+            <p>Username: {userProfile.userName}</p>
+            <p>Email: {userProfile.emailAddress}</p>
+            <p>User since: {dataData}</p>
+            <p>PokeGotchi: {props.pG.name}</p>
+            <Button className="user-button" variant="contained">Edit Profile</Button>
+            <Button className="user-button" variant="contained" color="error">Delete Profile</Button>
           </Box>
         </Box>
       </Box>

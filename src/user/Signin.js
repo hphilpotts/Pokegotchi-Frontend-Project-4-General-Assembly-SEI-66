@@ -8,10 +8,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import { useNavigate } from 'react-router-dom';
+
 import './user.css'
 
 
 export default function Signin(props) {
+
+  const navigate = useNavigate()
 
   const [newUser, setNewUser] = useState({ // init to empty string (controlled input)
     emailAddress: '',
@@ -42,13 +46,14 @@ export default function Signin(props) {
 
   const loginHandler = () => {
     props.login(newUser)
+    navigate("/") // TODO : code for if login fails?
   }
 
   return (
-    <div className='form-holder'>
-      <div className='form-box-outer'>
+    <div className='card-box card-outer'>
+      <div className='card-box card-inner'>
       <Typography variant='h4' className='form-title'>Sign in</Typography>
-    <Box className='form-box' sx={{
+    <Box className='user-form-box-small' sx={{
       boxShadow: 3
     }}>
       <FormGroup>

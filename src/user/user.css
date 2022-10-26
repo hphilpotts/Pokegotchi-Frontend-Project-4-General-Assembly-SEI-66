@@ -31,7 +31,6 @@
 }
 
 .form-button {
-    width: 60%;
     min-width: 5em;
     margin-top: 2em;
     /* don't look at this nasty bit of css below please */ 
@@ -42,6 +41,7 @@
 .form-title {
     color: #3B4CCA;
     text-shadow: 0.03em 0.03em 0.05em darkgray;
+    margin-top: 5%;
 }
 
 .form-ctrl {
@@ -84,7 +84,45 @@
     padding: 4%;
 }
 
+/* TODO - refactor the below... */
+
 .user-box {
-    background-color: #3B4CCA;
-    height: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #ffdd0053;
+    border: 1.3em solid #FFDE00;
+    border-radius: 1em;
+    box-shadow: 0.2em 0.2em 0.5em rgb(75, 75, 75);
+    padding: 0.5em;
 }
+
+.user-form-box {
+    margin-top: 10%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #ffffff7b;
+    border: 1.3em solid #FFDE00;
+    border-radius: 1em;
+    box-shadow: 0.2em 0.2em 0.5em rgb(75, 75, 75);
+    padding: 0.5em;
+}
+
+.user-form-box-small {
+    margin-top: 10%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #ffffff7b;
+    border: 1.3em solid #FFDE00;
+    border-radius: 1em;
+    box-shadow: 0.2em 0.2em 0.5em rgb(75, 75, 75);
+    padding: 0.5em;
+}
+

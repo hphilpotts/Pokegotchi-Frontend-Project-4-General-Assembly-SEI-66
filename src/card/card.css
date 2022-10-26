@@ -56,7 +56,11 @@
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 3px 3px 3px rgb(162, 162, 162);
+}
 
+.poke-image {
+    padding: 1%;
+    max-width: 100%;
 }
 
 .buttons-box {
