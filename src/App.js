@@ -32,6 +32,7 @@ export default function App() {
   const [user, setUser] = useState({})
   const [message, setMessage] = useState(null)
   const [pG, setPG] = useState(null)
+  const [loginSignal, setLoginSignal] = useState("")
 
   useEffect(() => {
   try{
@@ -59,6 +60,10 @@ export default function App() {
     console.log(err.message)
   }
   }, [])
+
+  const setSessionStorage = input => {
+    sessionStorage.setItem('userId', JSON.stringify(input)) // store user's userId in sessionStorage
+  }
 
   const registerHandler = (user) => { // passing the whole user object
     Axios.post("auth/signup", user)
@@ -142,13 +147,13 @@ export default function App() {
 
           <Logo></Logo>
           {/* {user ? "welcome " + user.user.username : "Hi new person. Please sign in/up"} */}
-          <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler}></Header>
+          <Header isAuth={isAuth} onLogoutHandler={onLogoutHandler} setSessionStorage={setSessionStorage} user={user}></Header>
           
           <Routes>
             <Route path='/' element={<Home isAuth={isAuth} user={user} pG={pG} findPG={findPG}/>}></Route>
             <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG}/>}></Route>
-            <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} pG={pG}/>: <Signin login={loginHandler}></Signin>}></Route>
-            <Route path="/signup" element={<Signup register={registerHandler}/>}></Route>
+            <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} pG={pG}/>: <Signin login={loginHandler} passChildSignal={setLoginSignal}></Signin>}></Route>
+            <Route path="/signup" element={<Signup register={registerHandler} />}></Route>
             <Route path="/pokedex" element={<Pokedex />}></Route>
             <Route path='/profile' element={<User isAuth={isAuth} user={user} pG={pG}/>}></Route>
             {/* <Route path="/pokegotchi" element={<Pokegotchi/>}></Route> */}

@@ -17,6 +17,14 @@ export default function Signin(props) {
 
   const navigate = useNavigate()
 
+  const fireSignalToParent = (signal) => {
+    setTimeout(function () {
+      console.log("Signal fired, will App.js refresh please?")
+      props.passChildSignal(signal)
+    }, 1000)
+
+  }
+
   const [newUser, setNewUser] = useState({ // init to empty string (controlled input)
     emailAddress: '',
     password: ''
@@ -46,6 +54,7 @@ export default function Signin(props) {
 
   const loginHandler = () => {
     props.login(newUser)
+    fireSignalToParent("This is a signal from the child component, Signin.js")
     navigate("/") // TODO : code for if login fails?
   }
 

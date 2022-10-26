@@ -25,7 +25,7 @@ export default function User(props) {
   const [userId, setUserId] = useState(null)
   const [userProfile, setUserProfile] = useState({})
   const [isEdit, setIsEdit] = useState(false)
-  const [editProfile, setEditProfile] = useState({})
+  const [newUser, setNewUser] = useState(props.user)
   const [openDeleteDialogue, setOpenDeleteDialogue] = useState(false) // for confirm delete dialoge box
 
   useEffect(() => {
@@ -67,6 +67,22 @@ export default function User(props) {
     setIsEdit(false)
   }
 
+  const handleEditChange = event => {
+    const attrToChange = event.target.name
+    const newVal = event.target.value
+    const user = {...newUser}
+    user[attrToChange] = newVal
+    console.log(user)
+    setNewUser(user)
+  }
+
+  const handleEditSubmit = event => {
+    event.preventDefault()
+    editUser(newUser)
+    event.target.reset()
+    setIsEdit(false)
+  }
+
     // GET EDIT User data:
   const getEditUser = id => {
     console.log('edit user')
@@ -74,9 +90,22 @@ export default function User(props) {
     .then(res => {
       console.log('logging user edit get:')
       console.log(res)
-      setEditProfile(res.data.user)
+      setNewUser(res.data.user)
     })
     .catch(err => {
+      console.log(err)
+    })
+  }
+
+    // PUT EDIT User data:
+  const editUser = user => {
+    Axios.put("user/update", user)
+    .then(res => {
+      console.log("updated user")
+      console.log(res)
+    })
+    .catch(err => {
+      console.log('error updating user')
       console.log(err)
     })
   }
@@ -162,6 +191,20 @@ export default function User(props) {
           </Box>) :
           <>
             <Button variant='contained' color='error' onClick={cancelEditClick}>Cancel Edit</Button>
+            <form onSubmit={handleEditSubmit}>
+              <div>
+                  <label>Name</label>
+                  <input name="userName" type="text" onChange={handleEditChange} value={newUser.userName}/>
+              </div>
+              <div>
+                  <label>Email</label>
+                  <input name="emailAddress" type="email" onChange={handleEditChange} value={newUser.emailAddress}/>
+              </div>
+
+              <div>
+                  <input type="submit" value="Update User"/>
+              </div>
+            </form>
           </>
         }
         </Box>

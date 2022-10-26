@@ -20,15 +20,23 @@ import './Main.css'
 export default function Header(props) {
 
   const [anchorElement, setAnchorElement] = React.useState(null)
+
   const open = Boolean(anchorElement)
+
   const handleMenuClick = e => {
     setAnchorElement(e.currentTarget)
   }
+
   const handleMenuClose = () => {
     setAnchorElement(null)
+    setUserId(props.user.user.id)
   }
 
   const navigate = useNavigate()
+
+  const setUserId = data => {
+    props.setSessionStorage(data)
+  }
 
   const logoutHandler = e => {
     props.onLogoutHandler(e)
@@ -76,7 +84,7 @@ export default function Header(props) {
               'aria-labelledby': 'basic-button',
             }}
           >
-              <Link className="link blue-text" to="/profile"><MenuItem onClick={handleMenuClose}>My Profile</MenuItem></Link>
+              <Link className="link blue-text" to="/profile" onClick={setUserId(props.user.user.id)}><MenuItem onClick={handleMenuClose}>My Profile</MenuItem></Link>
               <Link className="link blue-text" to="/card"><MenuItem onClick={handleMenuClose}>My PokeGotchi</MenuItem></Link>
               <Link className="link blue-text" to="/pokegotchi"><MenuItem onClick={handleMenuClose}>All PokeGotchi</MenuItem></Link>
               <Link className="link blue-text" to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
