@@ -12,7 +12,7 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 
 // React Router DOM import:
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 // CSS import:
 import './Main.css'
@@ -28,8 +28,11 @@ export default function Header(props) {
     setAnchorElement(null)
   }
 
+  const navigate = useNavigate()
+
   const logoutHandler = e => {
     props.onLogoutHandler(e)
+    navigate('/signin')
   }
 
   return (

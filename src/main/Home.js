@@ -64,7 +64,9 @@ export default function Home(props) {
                         <Link to='/card' className="link"><img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pG.pokedex}.png`}></img></Link>
                         </Box>
                         </>
-                        :<></>
+                        :<>
+                            <Link to='/profile' className='link'><Button>Go to Profile</Button></Link>
+                        </>
                     }
                 </Box>
             </Box>

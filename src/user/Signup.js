@@ -52,7 +52,7 @@ export default function SignUp(props) {
       // ? maybe add a cheeky error message or helpertext ?
 
     props.register(newUser)
-    navigate('/')
+    navigate('/signin')
   }
 
   return (
