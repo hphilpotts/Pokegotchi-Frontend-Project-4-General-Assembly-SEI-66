@@ -105,10 +105,10 @@ export default function App() {
   }
 
   // * find pokegotchi by user id
-  const findPG = id => { // user id is passed in as arg here
+  const findPG = async id => { // user id is passed in as arg here
     console.log('Finding your PokeGotchi from the backend...')
     console.log('User id passed: ' + id)
-    Axios.get(`/pokegotchi/findbyuser?id=${id}`) // TODO protect with auth
+    await Axios.get(`/pokegotchi/findbyuser?id=${id}`) // TODO protect with auth
     .then(res => {
       console.log('...found your PokeGotchi!')
       // console.log(res.data.pokegotchi)
