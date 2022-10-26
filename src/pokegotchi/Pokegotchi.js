@@ -9,8 +9,12 @@ import "./pokedex.css";
 export default function Pokegotchi({ id, name, sprites }) {
   return (
     <div>
-      <h1>This is working...</h1>
-      
+      <h1>Some pokemon will appear here</h1>
+      {/* <img src="img/pick1.png" className='logo-image' alt="pokemon-logo"/> */}
+
+      {/* IMAGE */}
+      <h3>{/* ID */}</h3>
+      <h3>{/* NAME */}</h3>
 
     </div>
   );

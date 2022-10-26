@@ -8,43 +8,44 @@ import './pokedex.css'
 
 export default function Pokedex() {
 
-    const [pokegotchiList, setPokegotchiList] = useState([]);
+    const [PokegotchiList, setPokegotchiList] = useState([]);
     const [Error, setHasError] = useState([]);
 
     
 
     useEffect(() => {
-        const fetchPokegotchiList = async () => {
+        const PokegotchiList = async () => {
             try {
                 for(let i=1; i<=151; i++) {
-                const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/' + i );
-                // console.log(data.id)
+                const { data }  = await axios.get('https://pokeapi.co/api/v2/pokemon/' + i );
+                console.log(data.id)
                 // console.log(data.name)
                 // console.log(data.sprites.other["official-artwork"].front_default)
                 // console.log(data, "string")
 
-                setPokegotchiList(data.name)
-                console.log(setPokegotchiList)
+                setPokegotchiList(data.id)
+                // console.log(setPokegotchiList)
                 
 
             }} catch (err) {
                 setHasError({ error: true, message: err.message })
             }
         }
-        fetchPokegotchiList()
+        PokegotchiList()
     }, [])
 
         
     return (
 
         <div>
-            
-            {/* <img src="img/pick1.png" className='logo-image' alt="pokemon-logo"/>
+            <h1>Some pokemon will appear here</h1>
+            <img src="img/pick1.png" className='logo-image' alt="pokemon-logo"/>
             <div>
-                {pokegotchiList.map((pokemon) => {
+                {PokegotchiList.map((pokemon) => {
                     const {id, name, attributes } = pokemon
                     return (
-                        <div key={id}>
+                        <div>
+                            <h1>{id}</h1>
                             <h1>{name}</h1>
                             <ul>
                                 {attributes.map((attribute) => {
@@ -62,7 +63,7 @@ export default function Pokedex() {
                         </div>
                     )
                 })}
-            </div>  */}
+            </div>
 
         </div>
     )
