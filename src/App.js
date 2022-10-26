@@ -52,6 +52,9 @@ export default function App() {
         setIsAuth(false)
       }
     }
+    if (user) {
+      sessionStorage.setItem('userId', JSON.stringify(user.user.id)) // store user's userId in sessionStorage
+    }
   } catch (err) {
     console.log(err.message)
   }
@@ -75,7 +78,6 @@ export default function App() {
       // storing the token:
       if(response.data.token != null){ // if there isn't not a token :)
         localStorage.setItem("token", response.data.token) // takes key, value
-
         // decoding the token:
         let user = jwt_decode(response.data.token)
 
