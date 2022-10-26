@@ -103,6 +103,8 @@ export default function User(props) {
     .then(res => {
       console.log("updated user")
       console.log(res)
+      const userId = JSON.parse(sessionStorage.getItem('userId')) // get userId item from session storage, again
+      loadUserDetail(userId) // reload with updated data
     })
     .catch(err => {
       console.log('error updating user')
