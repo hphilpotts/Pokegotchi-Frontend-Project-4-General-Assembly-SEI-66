@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 // MUI imports:
 import { Box } from '@mui/system'
-import { Typography, Paper } from '@mui/material'
+import { Typography, Button } from '@mui/material'
 
 // React Router DOM import:
 import { Link } from 'react-router-dom'
@@ -29,25 +29,26 @@ export default function Home(props) {
   return (
     <Box className="card-box card-outer" sx={{flexGrow: 1}}>
       <Box className="card-box card-inner">
-        <Typography variant="h3">
+        <Box className='title-box'>
+        <Typography variant="h4">
             <p className='home-text bold-text'>Welcome to the PokeGotchi App!</p>
         </Typography>
+        </Box>
+        <Box className='home-img-box'>
+            <img className='home-img' src='img/home.png'/>
+        </Box>
         {!props.isAuth ?
-            <Paper>
              <Box className='home-box'>   
                 <p>{props.isAuth}</p>
                 <Box>
-                    <Typography variant="h5">
-                        <Link to='/signin' className="link blue-text">This will ultimately become another Sign In form, for now it is a direct link to the /signin route...</Link>
-                    </Typography>
+                    <Button variant='contained'><Link to='/signin' className="link">Sign In</Link></Button>
                 </Box>
                 <Box>
-                    <Typography variant="h5">
+                    <Typography variant="h7">
                         <Link to='/signup' className="link blue-text">Not created an account yet? Click here to sign up!</Link>
                     </Typography>
                 </Box> 
             </Box>
-            </Paper>
             :
             <Box className='home-box'>
                 <Box>
