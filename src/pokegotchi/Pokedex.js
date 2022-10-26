@@ -8,7 +8,7 @@ import './pokedex.css'
 
 export default function Pokedex() {
 
-    const [PokegotchiList, setPokegotchiList] = useState([]);
+    const [pokegotchiList, setPokegotchiList] = useState([]);
     const [Error, setHasError] = useState([]);
 
     
@@ -18,13 +18,14 @@ export default function Pokedex() {
             try {
                 for(let i=1; i<=151; i++) {
                 const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/' + i );
-                // console.log(i)
+                // console.log(data.id)
                 // console.log(data.name)
                 // console.log(data.sprites.other["official-artwork"].front_default)
-
                 // console.log(data, "string")
 
-                setPokegotchiList(data)
+                setPokegotchiList(data.name)
+                console.log(setPokegotchiList)
+                
 
             }} catch (err) {
                 setHasError({ error: true, message: err.message })
@@ -32,10 +33,15 @@ export default function Pokedex() {
         }
         fetchPokegotchiList()
     }, [])
-  
 
-    
-                {PokegotchiList.map((pokemon) => {
+        
+    return (
+
+        <div>
+            
+            {/* <img src="img/pick1.png" className='logo-image' alt="pokemon-logo"/>
+            <div>
+                {pokegotchiList.map((pokemon) => {
                     const {id, name, attributes } = pokemon
                     return (
                         <div key={id}>
@@ -56,17 +62,8 @@ export default function Pokedex() {
                         </div>
                     )
                 })}
-     
-                
-            
+            </div>  */}
 
-            
-    return (
-
-        <div>
-            {/* IMG needs to be redone  */}
-            <img src="img/pick1.png" className='logo-image' alt="pokemon-logo"/>
-            <PokegotchiList></PokegotchiList>
         </div>
     )
 }
