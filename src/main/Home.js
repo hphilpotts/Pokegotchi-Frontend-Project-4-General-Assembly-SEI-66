@@ -65,7 +65,7 @@ export default function Home(props) {
                         </Box>
                         </>
                         :<>
-                            <Link to='/profile' className='link'><Button>Go to Profile</Button></Link>
+                            <Link to='/pokedex' className='link'><Button>Go to Pokedex</Button></Link>
                         </>
                     }
                 </Box>

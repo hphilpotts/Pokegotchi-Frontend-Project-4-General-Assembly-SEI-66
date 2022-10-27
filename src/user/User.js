@@ -25,17 +25,17 @@ export default function User(props) {
   const [userId, setUserId] = useState(null)
   const [userProfile, setUserProfile] = useState({})
   const [isEdit, setIsEdit] = useState(false)
+  const [newUser, setNewUser] = useState(props.user)
   const [openDeleteDialogue, setOpenDeleteDialogue] = useState(false) // for confirm delete dialoge box
 
   useEffect(() => {
-    sessionStorage.setItem('userId', JSON.stringify(props.user.user.id)) // store user's userId in sessionStorage
     setTimeout(function () {
       console.log("...waited for 1s...")
       setIsLoading(false)
     }, 1000)
     const userId = JSON.parse(sessionStorage.getItem('userId')) // get userId item from session storage
-    // console.log(userId)
     loadUserDetail(userId)
+    getEditUser(userId)
   }, [])
 
 
@@ -60,11 +60,26 @@ export default function User(props) {
     // show edit form:
   const handleEditClick = () => {
     setIsEdit(true)
-    getEditUser(userId)
   }
 
     // hide edit form:
   const cancelEditClick = () => {
+    setIsEdit(false)
+  }
+
+  const handleEditChange = event => {
+    const attrToChange = event.target.name
+    const newVal = event.target.value
+    const user = {...newUser}
+    user[attrToChange] = newVal
+    console.log(user)
+    setNewUser(user)
+  }
+
+  const handleEditSubmit = event => {
+    event.preventDefault()
+    editUser(newUser)
+    event.target.reset()
     setIsEdit(false)
   }
 
@@ -75,8 +90,24 @@ export default function User(props) {
     .then(res => {
       console.log('logging user edit get:')
       console.log(res)
+      setNewUser(res.data.user)
     })
     .catch(err => {
+      console.log(err)
+    })
+  }
+
+    // PUT EDIT User data:
+  const editUser = user => {
+    Axios.put("user/update", user)
+    .then(res => {
+      console.log("updated user")
+      console.log(res)
+      const userId = JSON.parse(sessionStorage.getItem('userId')) // get userId item from session storage, again
+      loadUserDetail(userId) // reload with updated data
+    })
+    .catch(err => {
+      console.log('error updating user')
       console.log(err)
     })
   }
@@ -162,6 +193,20 @@ export default function User(props) {
           </Box>) :
           <>
             <Button variant='contained' color='error' onClick={cancelEditClick}>Cancel Edit</Button>
+            <form onSubmit={handleEditSubmit}>
+              <div>
+                  <label>Name</label>
+                  <input name="userName" type="text" onChange={handleEditChange} value={newUser.userName}/>
+              </div>
+              <div>
+                  <label>Email</label>
+                  <input name="emailAddress" type="email" onChange={handleEditChange} value={newUser.emailAddress}/>
+              </div>
+
+              <div>
+                  <input type="submit" value="Update User"/>
+              </div>
+            </form>
           </>
         }
         </Box>
