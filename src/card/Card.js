@@ -44,10 +44,10 @@ export default function Card(props) {
         setPG({
           'name': 'Pokegotchi not chosen!',
           'hp': 0,
-          'pokedex': 0,
+          'pokedex': 132,
           'age' : 0,
           'cleanLevel': 0,
-          'foodLevel': 0,
+          'foodLevel': 1,
           'playLevel': 0
         })
       }

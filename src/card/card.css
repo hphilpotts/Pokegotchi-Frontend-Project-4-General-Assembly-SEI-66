@@ -67,24 +67,35 @@
     display: flex;
     justify-content: space-evenly;
     background-color: #3B4CCA;
-    height: 16%;
+    height: 24%;
     margin-top: -0.3em;
     width: 95%;
     position: relative; 
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 3px 3px 3px rgb(162, 162, 162);
+}
 
+.button-lower {
+    height: 15%;
+    background-color: #3B4CCA;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-title {
+    color: #FFDE00;
 }
 
 .pokeBall {
     width: 25%;
     background-color: transparent;
+    max-height: 100%;
 }
 
 .status-box {
     background-color: transparent;
-    height: 20%;
+    height: 12%;
     flex-direction: column;
     justify-content: space-evenly;
 }

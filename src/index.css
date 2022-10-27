@@ -55,3 +55,9 @@ code {
   height: 100%;
 }
 
+.notfound-img {
+  max-width: 70%;
+  max-height: 70%;
+  margin-left: 15%;
+}
+
