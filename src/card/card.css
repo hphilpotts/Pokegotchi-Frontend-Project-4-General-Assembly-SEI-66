@@ -103,7 +103,8 @@
     background-color: transparent;
     height: 12%;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    margin-top: 0.5em;
 }
 
 .updates-box {
@@ -112,6 +113,7 @@
     flex-direction: column;
     justify-content: right;
     padding-bottom: 2em;
+    margin-bottom: 0.5em;
 }
 
 .name, .HP, .status, .updates{

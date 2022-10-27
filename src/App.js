@@ -124,9 +124,9 @@ export default function App() {
       console.log(id)
       console.log('...found your PokeGotchi!')
       // console.log(res.data.pokegotchi)
-      console.log('PokeGotchi ObjectId: ' + res.data.pokegotchi[0]._id)
-      console.log('PokeGotchi Name: ' + res.data.pokegotchi[0].name)
-      console.log('PokeGotchi user:' + res.data.pokegotchi[0].user[0])
+      // console.log('PokeGotchi ObjectId: ' + res.data.pokegotchi[0]._id)
+      // console.log('PokeGotchi Name: ' + res.data.pokegotchi[0].name)
+      // console.log('PokeGotchi user:' + res.data.pokegotchi[0].user[0])
       setPG(res.data.pokegotchi[0]) // set pG state to user's PokeGotchi
       sessionStorage.setItem('pG', JSON.stringify(res.data.pokegotchi[0])) // store user's PokeGotchi in sessionStorage
     })
