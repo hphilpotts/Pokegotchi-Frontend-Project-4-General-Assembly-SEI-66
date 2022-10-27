@@ -45,8 +45,16 @@ export default function Pokedex() {
         PokegotchiList()
     }, [])
 
+    useEffect(() => {
+        setTimeout(function () {
+          console.log("I've set a 2 second delay to allow everything to load")
+          setIsLoading(false)
+        }, 2000)
+    }, [])
+
     const displayFetchedData = PokegotchiList.map((item, index) => (
-        <Box className="grid-container">
+        <div className="grid-container">
+            <div className="grid-item">
         <Box className="pdex-card-box pdex-card-outer">
         <Box className="pdex-card-box pdex-card-inner">
             <div key={index}>
@@ -54,8 +62,9 @@ export default function Pokedex() {
                 <p className="pdexName">#{item.pokedex} {item.name}</p>
             </div>
             </Box>
-        </Box>
-        </Box>
+            </Box>
+        </div>
+        </div>
         )
     )
 

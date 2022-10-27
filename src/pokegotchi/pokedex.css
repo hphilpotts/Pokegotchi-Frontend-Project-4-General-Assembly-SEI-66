@@ -2,6 +2,7 @@
     display: inline-grid;
     justify-content: center;
     margin-top: 20px;
+    grid-template-columns: auto auto;
     
 }
 
