@@ -1,3 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* background-color: #FFDE00 !important; */
+    /* max-width: 30em; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    
+}
+
 .grid-container {
     width: auto 0;
     display: inline-grid;
@@ -17,15 +29,16 @@
     margin-top: 2%;
     border-radius: 1em;
     min-height: 5em;
-    max-height: 5m;
-    max-width: 10em;
+    max-height: 13em;
+    max-width: 9em;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
     box-shadow: 5px 5px 5px rgb(162, 162, 162);
-    margin-bottom: 20px;
+    margin: 0.3em;
+    /* margin-bottom: 20px;
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 10px; */
 }
 
 .pdex-card-inner {

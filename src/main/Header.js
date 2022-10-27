@@ -84,8 +84,8 @@ export default function Header(props) {
               'aria-labelledby': 'basic-button',
             }}
           >
-              <Link className="link blue-text" to="/card"><MenuItem onClick={handleMenuClose}>My PokeGotchi</MenuItem></Link>
               <Link className="link blue-text" to="/profile" onClick={setUserId(props.user.user.id)}><MenuItem onClick={handleMenuClose}>My Profile</MenuItem></Link>
+              <Link className="link blue-text" to="/card"><MenuItem onClick={handleMenuClose}>My PokeGotchi</MenuItem></Link>
               <Link className="link blue-text" to="/pokedex"><MenuItem onClick={handleMenuClose}>Pokedex</MenuItem></Link>
               <Link className="link blue-text" to="/"><MenuItem onClick={handleMenuClose}>Home Page</MenuItem></Link>
           </Menu>)

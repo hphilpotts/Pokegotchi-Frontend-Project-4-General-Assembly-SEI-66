@@ -124,9 +124,9 @@ export default function App() {
       console.log(id)
       console.log('...found your PokeGotchi!')
       // console.log(res.data.pokegotchi)
-      console.log('PokeGotchi ObjectId: ' + res.data.pokegotchi[0]._id)
-      console.log('PokeGotchi Name: ' + res.data.pokegotchi[0].name)
-      console.log('PokeGotchi user:' + res.data.pokegotchi[0].user[0])
+      // console.log('PokeGotchi ObjectId: ' + res.data.pokegotchi[0]._id)
+      // console.log('PokeGotchi Name: ' + res.data.pokegotchi[0].name)
+      // console.log('PokeGotchi user:' + res.data.pokegotchi[0].user[0])
       setPG(res.data.pokegotchi[0]) // set pG state to user's PokeGotchi
       sessionStorage.setItem('pG', JSON.stringify(res.data.pokegotchi[0])) // store user's PokeGotchi in sessionStorage
     })
@@ -152,7 +152,7 @@ export default function App() {
           
           <Routes>
             <Route path='/' element={<Home isAuth={isAuth} user={user} pG={pG} findPG={findPG}/>}></Route>
-            <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG}/>}></Route>
+            <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG} findPG={findPG}/>}></Route>
             <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} pG={pG}/>: <Signin login={loginHandler} passChildSignal={setLoginSignal}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler} />}></Route>
             <Route path="/pokedex" element={<Pokedex />}></Route>
