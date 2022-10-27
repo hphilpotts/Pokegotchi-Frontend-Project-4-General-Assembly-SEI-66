@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import Axios from 'axios'
+
 // MUI imports:
 import { Box } from '@mui/system'
 import { CircularProgress } from '@mui/material'
@@ -58,17 +60,35 @@ export default function Card(props) {
     switch (button) {
       case 'feed':
         console.log('Fed ' + pG.name + '!')
+        // * Axios put in here to update DB based on button press
         break
       case 'clean':
         console.log('Cleaned ' + pG.name + '!')
+        // * Axios put in here to update DB based on button press
         break
       case 'play':
         console.log('Played with ' + pG.name + '!')
+        // * Axios put in here to update DB based on button press
         break
       case 'heal':
         console.log('Healed ' + pG.name + '!')
+        healFunction(pG)
         break
     }
+  }
+
+  const healFunction = pokegotchi => {
+    // console.log(props.user.user.id)
+    Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=hp&value=90`, pokegotchi)
+    .then(res => {
+      console.log('PokeGotchi updated!')
+      console.log(res)
+      setPG(res)
+    })
+    .catch(err => {
+      console.log(err)
+    }
+    )
   }
 
   if(isLoading) {
