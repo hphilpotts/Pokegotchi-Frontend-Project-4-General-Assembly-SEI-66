@@ -1,21 +1,32 @@
-// import { ListItem } from "@mui/material";
-// import React from "react";
-// import axios from "axios";
-// // import { useState } from 'react'
-// // import { useEffect } from 'react'
-// import Pokedex from './Pokedex'
-// import "./pokedex.css";
+useEffect(() => {
+    const PokegotchiSelect = async () => {
+        try {
+            const res = await axios.put('/controllers/pokegotchi', {
+                data: {
+                    // doesnt like . ???
+                    id: {pokedex}
+                }
+            });
 
-// export default function Pokegotchi({ id, name, sprites }) {
-//   return (
-//     <div>
-//       <h1>Some pokemon will appear here</h1>
-//       {/* <img src="img/pick1.png" className='logo-image' alt="pokemon-logo"/> */}
+            console.log(data);
+        } catch (err) {
+            if (err.response.status === 404) {
+                console.log('Resource could not be found!');
+            } else {
+                console.log(err.message);
+            }
+        }
+    }
+    PokegotchiSelect()
+}, [])
 
-//       {/* IMAGE */}
-//       <h3>{/* ID */}</h3>
-//       <h3>{/* NAME */}</h3>
 
-//     </div>
-//   );
-// }
+// const userId = JSON.parse(sessionStorage.getItem('userId')) // get userId item from session storage
+// loadUserDetail(userId)
+// getEditUser(userId)
+// , []):
+
+
+
+
+

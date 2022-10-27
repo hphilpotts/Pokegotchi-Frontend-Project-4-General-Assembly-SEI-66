@@ -1,8 +1,11 @@
 .grid-container {
     display: inline-grid;
-    justify-content: center;
+    /* justify-content: center; */
     margin-top: 20px;
     grid-template-columns: auto auto;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; */
     
 }
 
@@ -60,4 +63,14 @@
     box-shadow: 3px 3px 3px rgb(162, 162, 162);
 }
 
+.loading {
+    margin-top: 800em;
+    display: flex;
+    justify-content: center;
+}
 
+.tagline {
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
