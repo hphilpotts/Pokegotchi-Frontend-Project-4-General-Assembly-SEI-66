@@ -110,6 +110,8 @@
     background-color: transparent;
     height: 12%;
     flex-direction: column;
+    justify-content: right;
+    padding-bottom: 2em;
 }
 
 .name, .HP, .status, .updates{
@@ -123,4 +125,13 @@
     flex-direction: column;
     justify-content: center;
     height: 65%;
+}
+
+.update-detail {
+    max-width: 24%;
+    margin: 1%;
+}
+
+.embolden {
+    font-weight: bolder;
 }
