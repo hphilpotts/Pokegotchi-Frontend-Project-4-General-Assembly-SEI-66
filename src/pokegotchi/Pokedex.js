@@ -6,10 +6,11 @@ import { useEffect } from "react";
 import "./pokedex.css";
 import { Box } from "@mui/system";
 import { CircularProgress } from "@mui/material";
-import TextField from "@mui/material/TextField";
-// import List from "./Components/List"
 
-export default function Pokedex() {
+import Choice from './Choice'
+
+
+export default function Pokedex(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [PokegotchiList, setPokegotchiList] = useState([]);
   const [Error, setHasError] = useState([]);
@@ -46,14 +47,22 @@ export default function Pokedex() {
 
   useEffect(() => {
     setTimeout(function () {
-      console.log("I've set a 2.5 second delay to allow everything to load");
+      console.log("I've set a 3 second delay to allow everything to load");
       setIsLoading(false);
     }, 3000);
   }, []);
 
+//   user.user.id????? 
+
+  const pokeClick = event => {
+    const button = (event.item.pokedex)
+    console.log(`${button} clicked`)
+    PokegotchiList.buttonPress(button)
+  }
+
   if (isLoading) {
     return (
-      <div className="loading" className="pdexName">
+      <div className="loading pdexName">
         <CircularProgress /> &nbsp; &nbsp; &nbsp; &nbsp; Catching them all...
       </div>
     );
@@ -63,8 +72,7 @@ export default function Pokedex() {
     (item, index) => (
       <div className="grid-container">
         <div className="grid-item">
-          {/* SET ONCLICK??? onClick={this.handleChange} */}
-          <a href="/card">
+          <a href="/card" onClick={pokeClick}>
             <Box className="pdex-card-box pdex-card-outer">
               <Box className="pdex-card-box pdex-card-inner">
                 <div key={index}>

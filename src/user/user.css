@@ -126,3 +126,65 @@
     padding: 0.5em;
 }
 
+.mock-button {
+    display: inline-flex;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+    border: 0;
+    margin: 0;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    min-width: 64px;
+    padding: 6px 16px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #1976d2;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    writing-mode: horizontal-tb !important;
+    margin: 1em 0;
+}
+
+.edit-user-form {
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.input-div {
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.input-label {
+    color: #3B4CCA;
+    font-weight: bold;
+}
+
+.input-box {
+    padding: 0.5em;
+    width: 50%;
+    margin-left: 0.5em;
+    border: none;
+    border-radius: 0.5em;
+    box-shadow: darkgray 0.1em 0.1em 0.5em;
+}
+
+.info-box {
+    background-color: white;
+    border-radius: 1.5em;
+    margin: 0 0.5em;
+    box-shadow: darkgray 0.1em 0.1em 0.5em;
+}
