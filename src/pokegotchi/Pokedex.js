@@ -2,12 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import Pokegotchi from './Pokegotchi';
+// import Pokegotchi from './Pokegotchi';
 import './pokedex.css'
+import { Box } from '@mui/system'
+import { CircularProgress } from '@mui/material'
 
 
 export default function Pokedex() {
 
+    const [isLoading, setIsLoading] = useState(true)
     const [PokegotchiList, setPokegotchiList] = useState([]);
     const [Error, setHasError] = useState([]);
 
@@ -43,55 +46,27 @@ export default function Pokedex() {
     }, [])
 
     const displayFetchedData = PokegotchiList.map((item, index) => (
+        <Box className="container">
+        <Box className="pdex-card-box pdex-card-outer">
+        <Box className="pdex-card-box pdex-card-inner">
             <div key={index}>
-                <p>{item.name}</p>
-                <p>{item.pokedex}</p>
-                <img src={item.image} />
+                <img className="pdexImg" src={item.image} />
+                <p className="pdexName">#{item.pokedex} {item.name}</p>
             </div>
+            </Box>
+        </Box>
+        </Box>
         )
     )
 
     return (
-         <div>
+
+        <div>
+            <img className="tagline" src='img/pick.png'></img> 
+         <div className="container">
             {displayFetchedData}
          </div>
+        </div>
+
     )
-// ! Spread syntax (...)?
-//! Object.values()?
-// ! object.keys to map through an object????
-
-{/* //         <div>
-//           {Object.keys(PokegotchiList).map((key, index) => {
-//             return (
-//               <div key={index}>
-//                 <h2>
-//                   {key}: {PokegotchiList[key]}
-//                 </h2>
-    
-//                 <hr />
-//               </div>
-//             );
-//           })}
-//             </div>
-    
-//           <br />
-//           <br />
-//           <br />
-    
-
-//         <div>
-
-//             {Object.values(PokegotchiList).map((value, id => {
-//                 return (
-//                     <div id={value}>
-//                         <h2>{id}</h2>
-//                         <hr />
-//           </div>
-//         );
-//       })}
-//     </div>
-</div>
-//   );
-// }
- */}
-}
+    }

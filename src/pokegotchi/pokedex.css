@@ -1,18 +1,22 @@
-/* ! JUST IMPORTED CARD.CSS FOR TIME BEING */
 
-/* .card-box {
-    height: 100%;
+/* .container {
+    display: flex;
+
+} */
+
+.pdex-card-box {
+    height: 10%;
   }
 
-.card-outer {
+.pdex-card-outer {
     background-color: #FFDE00;
-    height: 79vh;
+    height: 37vh;
     display: flex;
     margin-top: 2%;
     border-radius: 1em;
-    min-height: 40em;
-    max-height: 55em;
-    max-width: 30em;
+    min-height: 5em;
+    max-height: 5m;
+    max-width: 10em;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -20,7 +24,7 @@
     margin-bottom: 20px;
 }
 
-.card-inner {
+.pdex-card-inner {
     background-image: url("https://bit.ly/3srhQPW");
     background-size: cover;
     margin: 4%;
@@ -29,53 +33,26 @@
     padding: 4%;
 }
 
-.card-box-inner {
-    margin: 0.3em;
+
+.pdexName {
     position: relative; 
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    display: flex;
-
-    
-}
-
-.name-box {
-    background-color: transparent;
-    height: 4%;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.sprite-box {
-    background-color: white;
-    height: 45%;
-    width: 95%;
-    position: relative; 
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 3px 3px 3px rgb(162, 162, 162);
-
-}
-
-.buttons-box {
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #3B4CCA;
-    height: 16%;
-    margin-top: -0.3em;
-    width: 95%;
-    position: relative; 
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 3px 3px 3px rgb(162, 162, 162);
-
-}
-
-.name, .HP, .status, .updates{
+    text-transform: capitalize;
     color: #3B4CCA;
     text-shadow: 0.03em 0.03em 0.05em darkgray;
     font-weight: bolder;
-} */
+    text-shadow: 0.03em 0.03em 0.05em darkgray;
+} 
+
+.pdexImg {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 3px 3px 3px rgb(162, 162, 162);
+}
+
+

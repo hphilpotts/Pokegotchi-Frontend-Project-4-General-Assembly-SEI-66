@@ -154,7 +154,7 @@ export default function App() {
             <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG}/>}></Route>
             <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} pG={pG}/>: <Signin login={loginHandler} passChildSignal={setLoginSignal}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler} />}></Route>
-            <Route path="/pokedex" element={<Pokedex />}></Route>
+            <Route path="/pokegotchi" element={<Pokedex />}></Route>
             <Route path='/profile' element={<User isAuth={isAuth} user={user} pG={pG}/>}></Route>
             {/* <Route path="/pokegotchi" element={<Pokegotchi/>}></Route> */}
 
