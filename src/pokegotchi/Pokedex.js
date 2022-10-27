@@ -63,9 +63,9 @@ export default function Pokedex() {
 
         <div>
             {/* <img className="tagline" src='img/pick.png'></img>  */}
-         <div className="container">
+         <Box className="container">
             {displayFetchedData}
-         </div>
+         </Box>
         </div>
 
     )
