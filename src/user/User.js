@@ -159,6 +159,7 @@ export default function User(props) {
   // format createdAt for readable display
     // TODO - is there a better way? Like a moment-type library? 
   const dateData = new Date(userProfile.createdAt).toString().split(' ').slice(1, 4 ).join(' ')
+  
 
   return (
       <Box className="card-box card-outer" sx={{flexGrow: 1}}>

@@ -7,8 +7,10 @@ import "./pokedex.css";
 import { Box } from "@mui/system";
 import { CircularProgress } from "@mui/material";
 
+import Choice from './Choice'
 
-export default function Pokedex() {
+
+export default function Pokedex(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [PokegotchiList, setPokegotchiList] = useState([]);
   const [Error, setHasError] = useState([]);
