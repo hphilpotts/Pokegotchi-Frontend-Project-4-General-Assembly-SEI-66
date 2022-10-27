@@ -24,6 +24,10 @@ export default function Card(props) {
   const [user, setUser] = useState(null)
   const [status, setStatus] = useState('')
 
+  const findPG = id => {
+    props.findPG(id)
+  }
+
   // * Here useEffect is used to prevent crashes triggered by page refresh or manual url entry to card/ route:
     // If the user performs these actions, the states in parent 'App.js' a cleared and the pG prop passed to this component is 'null'.
     // ! If this approach causes problems later on, try instead executing same API call from App.js ('findPG') within useEffect here!
@@ -31,7 +35,6 @@ export default function Card(props) {
     setTimeout(function () {
       // console.log("I've set a 1.5 second delay to allow everything to load")
       setIsLoading(false)
-      setStatus(`${pG.name} says hello!`)
     }, 1500)
     // console.log('Checking for pG prop from App.js state. If found, set pG state to pG prop and pass on. Logging props.pG:')
     // console.log(props.pG) // Debug: First, check if there are props and log, if not then log undefined.
@@ -55,7 +58,9 @@ export default function Card(props) {
           'playLevel': 0
         })
       }
-    } 
+    }
+    setStatus(`Your PokeGotchi seems happy to see you!`)
+
   }, [])
 
   const buttonPress = button => {
@@ -70,19 +75,43 @@ export default function Card(props) {
             console.log(`${pG.name} is full!`)
             setStatus(`${pG.name} is full!`)
            }
-        }, 1500)
+        }, 2500)
         break
       case 'clean':
         console.log('Cleaning ' + pG.name + '!')
-        if (pG.cleanLevel < 10) { cleanFunction(pG) } else { console.log(`${pG.name} is already sparkly clean!`) }
+        setStatus('Cleaning ' + pG.name + '...')
+        setTimeout(function(){
+          if (pG.cleanLevel < 10) {
+            cleanFunction(pG)
+           } else { 
+            console.log(`${pG.name} is already sparkly clean!`)
+            setStatus(`${pG.name} is already sparkly clean!`)
+           }
+        }, 2500)
         break
       case 'play':
         console.log('Playing with ' + pG.name + '!')
-        if (pG.playLevel < 10) { playFunction(pG) } else { console.log(`${pG.name} is tired and doesn't want to play anymore!`) }
+        setStatus('Playing with ' + pG.name + '...')
+        setTimeout(function(){
+          if (pG.playLevel < 10) {
+            playFunction(pG)
+          } else {
+            console.log(`${pG.name} is too tired to play...`)
+            setStatus(`${pG.name} is too tired to play...`) }
+        }, 2500)
         break
       case 'heal':
         console.log('Healed ' + pG.name + '!')
-        healFunction(pG) // restores pG HP to 100
+        setStatus('Healing ' + pG.name + '...')
+        setTimeout(function(){
+          if (pG.hp < 100) {
+            healFunction(pG) // restores pG HP to 100
+          } else {
+            findPG(props.user.user.id)
+            console.log(`${pG.name} is already at full HP!`)
+            setStatus(`${pG.name} is already at full HP!`)
+          }
+        }, 2500)
         break
     }
   }
@@ -94,6 +123,7 @@ export default function Card(props) {
       console.log('PokeGotchi updated!')
       setPG(res.data.pokegotchi)
       setStatus(`${pG.name} seemed hungry!`)
+      findPG(props.user.user.id)
     })
     .catch(err => {
       console.log(err)
@@ -105,8 +135,9 @@ export default function Card(props) {
     Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=cleanLevel&value=${value}`, pokegotchi)
     .then(res => {
       console.log('PokeGotchi updated!')
-      console.log(res)
       setPG(res.data.pokegotchi)
+      setStatus(`${pG.name} looks happier and cleaner!`)
+      findPG(props.user.user.id)
     })
     .catch(err => {
       console.log(err)
@@ -118,8 +149,9 @@ export default function Card(props) {
     Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=playLevel&value=${value}`, pokegotchi)
     .then(res => {
       console.log('PokeGotchi updated!')
-      console.log(res)
       setPG(res.data.pokegotchi)
+      setStatus(`${pG.name} had fun playing a game!`)
+      findPG(props.user.user.id)
     })
     .catch(err => {
       console.log(err)
@@ -132,8 +164,9 @@ export default function Card(props) {
     Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=hp&value=100`, pokegotchi)
     .then(res => {
       console.log('PokeGotchi updated!')
-      console.log(res)
       setPG(res.data.pokegotchi)
+      setStatus(`${pG.name} is looking better already!`)
+      findPG(props.user.user.id)
     })
     .catch(err => {
       console.log(err)

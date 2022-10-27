@@ -152,7 +152,7 @@ export default function App() {
           
           <Routes>
             <Route path='/' element={<Home isAuth={isAuth} user={user} pG={pG} findPG={findPG}/>}></Route>
-            <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG}/>}></Route>
+            <Route path="/card" element={<Card isAuth={isAuth} user={user} pG={pG} findPG={findPG}/>}></Route>
             <Route path="/signin" element={isAuth ? <Card isAuth={isAuth} user={user} pG={pG}/>: <Signin login={loginHandler} passChildSignal={setLoginSignal}></Signin>}></Route>
             <Route path="/signup" element={<Signup register={registerHandler} />}></Route>
             <Route path="/pokedex" element={<Pokedex />}></Route>
