@@ -181,3 +181,10 @@
     border-radius: 0.5em;
     box-shadow: darkgray 0.1em 0.1em 0.5em;
 }
+
+.info-box {
+    background-color: white;
+    border-radius: 1.5em;
+    margin: 0 0.5em;
+    box-shadow: darkgray 0.1em 0.1em 0.5em;
+}

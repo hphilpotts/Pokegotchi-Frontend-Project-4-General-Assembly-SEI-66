@@ -165,10 +165,14 @@ export default function User(props) {
         <Box className="card-box card-inner">
         { !isEdit ? 
           (<Box className='user-box'>
-            <p>Username: {userProfile.userName}</p>
-            <p>Email: {userProfile.emailAddress}</p>
-            <p>User since: {dateData}</p>
-            <p>PokeGotchi: {props.pG.name}</p>
+            <Typography variant='h4'>
+              <span className='form-title'>User Profile</span>
+            </Typography>
+            
+            <Box className='info-box' ><p className='blue-text'>Username: {userProfile.userName}</p></Box>
+            <Box className='info-box' ><p className='blue-text'>Email: {userProfile.emailAddress}</p></Box>
+            <Box className='info-box' ><p className='blue-text'>User since: {dateData}</p></Box>
+            <Box className='info-box' ><p className='blue-text'>PokeGotchi: {props.pG.name}</p></Box>
             <Button className="user-button" variant="contained" onClick={handleEditClick}>Edit Profile</Button>
             <Button className="user-button" variant="contained" color="error" onClick={handleDeleteClick}>Delete Profile</Button>
             <Dialog
