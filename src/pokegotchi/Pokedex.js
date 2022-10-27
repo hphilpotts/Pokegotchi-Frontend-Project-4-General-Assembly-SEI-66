@@ -22,9 +22,9 @@ export default function Pokedex() {
                 const fetchedData = []
                 for (let i = 1; i <= 151; i++) {
                     const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/' + i);
-                    console.log(data.id)
-                    console.log(data.name)
-                    console.log(data.sprites.other["official-artwork"].front_default)
+                    // console.log(data.id)
+                    // console.log(data.name)
+                    // console.log(data.sprites.other["official-artwork"].front_default)
                     // console.log(data, "string")
                     const newPokeGotchi = {
                         'name': data.name,
@@ -46,7 +46,7 @@ export default function Pokedex() {
     }, [])
 
     const displayFetchedData = PokegotchiList.map((item, index) => (
-        <Box className="container">
+        <Box className="grid-container">
         <Box className="pdex-card-box pdex-card-outer">
         <Box className="pdex-card-box pdex-card-inner">
             <div key={index}>
