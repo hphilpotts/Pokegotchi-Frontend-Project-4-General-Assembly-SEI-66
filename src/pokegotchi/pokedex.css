@@ -11,12 +11,12 @@
 }
 
 .grid-container {
+    width: auto 0;
     display: inline-grid;
-    justify-content: center;
-    margin-top: 20px;
+    margin-top: 2em;
+    grid-template-columns: auto;
     
 }
-
 
 .pdex-card-box {
     height: 10%;
@@ -72,4 +72,19 @@
     box-shadow: 3px 3px 3px rgb(162, 162, 162);
 }
 
+.loading {
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+}
 
+.tagline {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
+
+.container {
+    justify-content: center;
+}
