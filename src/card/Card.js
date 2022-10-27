@@ -22,17 +22,19 @@ export default function Card(props) {
   const [isLoading, setIsLoading] = useState(true)
   const [pG, setPG] = useState({})
   const [user, setUser] = useState(null)
+  const [status, setStatus] = useState('')
 
   // * Here useEffect is used to prevent crashes triggered by page refresh or manual url entry to card/ route:
     // If the user performs these actions, the states in parent 'App.js' a cleared and the pG prop passed to this component is 'null'.
     // ! If this approach causes problems later on, try instead executing same API call from App.js ('findPG') within useEffect here!
   useEffect(() => {
     setTimeout(function () {
-      console.log("I've set a 1.5 second delay to allow everything to load")
+      // console.log("I've set a 1.5 second delay to allow everything to load")
       setIsLoading(false)
+      setStatus(`${pG.name} says hello!`)
     }, 1500)
-    console.log('Checking for pG prop from App.js state. If found, set pG state to pG prop and pass on. Logging props.pG:')
-    console.log(props.pG) // Debug: First, check if there are props and log, if not then log undefined.
+    // console.log('Checking for pG prop from App.js state. If found, set pG state to pG prop and pass on. Logging props.pG:')
+    // console.log(props.pG) // Debug: First, check if there are props and log, if not then log undefined.
     setPG(props.pG) // If prop found, set pG state, if not this will remain falsy, triggering line below
     if (!props.pG) {// if undefined, look to session storage
       console.log('...props.pG not found, either null, or undefined. Looking in Session Storage, logging pG item:')
@@ -60,7 +62,15 @@ export default function Card(props) {
     switch (button) {
       case 'feed':
         console.log('Feeding ' + pG.name + '!')
-        if (pG.foodLevel < 10) { feedFunction(pG) } else { console.log(`${pG.name} is full!`) }
+        setStatus('Feeding ' + pG.name + '...')
+        setTimeout(function(){
+          if (pG.foodLevel < 10) { 
+            feedFunction(pG)
+           } else { 
+            console.log(`${pG.name} is full!`)
+            setStatus(`${pG.name} is full!`)
+           }
+        }, 1500)
         break
       case 'clean':
         console.log('Cleaning ' + pG.name + '!')
@@ -82,8 +92,8 @@ export default function Card(props) {
     Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=foodLevel&value=${value}`, pokegotchi)
     .then(res => {
       console.log('PokeGotchi updated!')
-      console.log(res)
       setPG(res.data.pokegotchi)
+      setStatus(`${pG.name} seemed hungry!`)
     })
     .catch(err => {
       console.log(err)
@@ -161,7 +171,7 @@ export default function Card(props) {
             </Buttons>
           </Box>
           <Box className="card-box-inner status-box">
-            <Status pG={pG}></Status>
+            <Status pG={pG} status={status}></Status>
           </Box>
           <Box className="card-box-inner updates-box">
             <Updates pG={pG}></Updates>
