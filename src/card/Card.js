@@ -54,6 +54,23 @@ export default function Card(props) {
     } 
   }, [])
 
+  const buttonPress = button => {
+    switch (button) {
+      case 'feed':
+        console.log('Fed ' + pG.name + '!')
+        break
+      case 'clean':
+        console.log('Cleaned ' + pG.name + '!')
+        break
+      case 'play':
+        console.log('Played with ' + pG.name + '!')
+        break
+      case 'heal':
+        console.log('Healed ' + pG.name + '!')
+        break
+    }
+  }
+
   if(isLoading) {
     return (
       <Box className="card-box card-outer" sx={{flexGrow: 1}}>
@@ -77,7 +94,7 @@ export default function Card(props) {
             <Sprite imgKey={pG.pokedex}></Sprite>
           </Box>
           <Box className="card-box-inner buttons-box">
-            <Buttons>
+            <Buttons buttonPress={buttonPress}>
               {/* <img src=''></img> commented out temporarily due to React warning message */}
 
 
