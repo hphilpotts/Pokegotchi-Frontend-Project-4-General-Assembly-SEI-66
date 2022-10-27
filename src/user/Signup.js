@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import { EventHandler } from 'react';
 
 import { Box } from '@mui/system'
 import { FormControl, FormHelperText,InputLabel, Input, FormGroup, Button, Typography } from '@mui/material'
@@ -8,14 +9,18 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import { useNavigate } from 'react-router-dom';
+
 import './user.css'
 
 
 export default function SignUp(props) {
 
+  const navigate = useNavigate()
+
   const [newUser, setNewUser] = useState({ // These init as empty strings, else a uncontrolled / controlled input error shows
-    email: '',
-    name: '',
+    emailAddress: '',
+    userName: '',
     password: '',
     verifyPassword: ''
   })
@@ -35,7 +40,7 @@ export default function SignUp(props) {
     event.preventDefault();
   };
 
-  const changeHandler = e => {
+  const changeHandler = (e) => {
     const user ={...newUser}
     user[e.target.name] = e.target.value
     console.log(user) // todo remove p-debug
@@ -47,24 +52,25 @@ export default function SignUp(props) {
       // ? maybe add a cheeky error message or helpertext ?
 
     props.register(newUser)
+    navigate('/signin')
   }
 
   return (
-    <div className='form-holder'>
-      <div className='form-box-outer'>
+    <div className='card-box card-outer'>
+      <div className='card-box card-inner'>
       <Typography variant='h4' className='form-title'>Sign up</Typography>
-    <Box className='form-box' sx={{
+    <Box className='user-form-box' sx={{
       boxShadow: 3
     }}>
       <FormGroup>
       <FormControl className='form-ctrl'>
         <InputLabel htmlFor='email-input'>Email Address</InputLabel>
-        <Input id="email-input" aria-describedby="email-helper-text" name="email" onChange={changeHandler}></Input>
+        <Input id="email-input" aria-describedby="email-helper-text" name="emailAddress" onChange={changeHandler}></Input>
         <FormHelperText className='hide-helper' id="email-helper-text">Please enter a valid email adress</FormHelperText>
       </FormControl><br></br>
       <FormControl className='form-ctrl'>
-        <InputLabel htmlFor='name-input'>Name</InputLabel>
-        <Input id="name-input" aria-describedby="email-helper-text" name="name" onChange={changeHandler}></Input>
+        <InputLabel htmlFor='name-input'> choose a username</InputLabel>
+        <Input id="name-input" aria-describedby="email-helper-text" name="userName" onChange={changeHandler}></Input>
         <FormHelperText className='hide-helper' id="email-helper-text">Enter a valid name</FormHelperText>
       </FormControl><br></br>
 

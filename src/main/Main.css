@@ -1,10 +1,5 @@
 /* || -- CSS for main components -- */
 
-/* || Text */
-.yellow-text {
-    color: #3B4CCA
-}
-
 /* || Logo */
 .logo-div {
     display: flex;
@@ -14,13 +9,26 @@
 
 .logo-image {
     /* max-height: 5em; */
-    margin-bottom: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 30em;
+    max-width: 100vw; /* * set max-width to avoid screen overlap on mobile, can change back if preferred! */
 }
 
 /* || Header */
 
+.header-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .header-box {
+    /* margin: auto; */
+    margin-left: 0%;
+    margin-right: 0%;
+    max-width: 30em;
     border-radius: 0.5em;
+
 }
 
 .header-bar {
@@ -30,4 +38,109 @@
 .link {
     text-decoration: none;
     color: inherit;
+}
+
+.vl {
+    /* ? does this look cleaner without the line now that most menu items are in the dropdown ? */
+    /* border-left: 1px solid #3B4CCA; */
+    height: 85%;
+    position: absolute;
+    left: 50%;
+    /* ? or even slightly offset ? */
+    /* margin-left: 5%; */
+    top: 5PX;
+}
+
+/* For 'Home.js' card formatting: */
+
+.card-box {
+    height: 100%;
+  }
+
+.card-outer {
+    background-color: #FFDE00;
+    height: 79vh;
+    display: flex;
+    margin-top: 2%;
+    border-radius: 1em;
+    min-height: 40em;
+    max-height: 55em;
+    max-width: 30em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 5px 5px 5px rgb(162, 162, 162);
+    margin-bottom: 20px;
+}
+
+.card-inner {
+    /* background-color: #e5c706; */
+    background-image: url("https://bit.ly/3srhQPW");
+    background-size: cover;
+    margin: 4%;
+    width: 100%;
+    height: auto;
+    padding: 4%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-text {
+    color: #3B4CCA;
+    font-weight: bolder;
+}
+
+.home-box {
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #ffdd0053;
+    border: 1.3em solid #FFDE00;
+    border-radius: 1em;
+    box-shadow: 0.2em 0.2em 0.5em rgb(75, 75, 75);
+    padding: 0.5em;
+}
+
+/* || Text */
+.yellow-text {
+    color: #FFDE00
+}
+
+.blue-text {
+    color: #3B4CCA
+}
+
+.bold-text {
+    font-weight: bold !important;
+    text-shadow: #FFDE00 0.08em 0.08em 0.08em !important;
+}
+
+.menu {
+    background-color: #3B4CCA !important;
+}
+
+.text-right {
+    text-align: right;
+    padding-right: 0.5em;
+}
+
+.home-img-box {
+    max-height: 30%;
+    margin-bottom: 3em;
+
+}
+
+.home-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0.5em;
+    box-shadow: 0.2em 0.2em 0.5em rgb(75, 75, 75);
+
+}
+
+.title-box {
+    max-height: 30%;
+    display: flex;
 }

@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function Sprite() {
+import './card.css'
+
+export default function Sprite(props) {
   return (
-    <div>Sprite</div>
+    // <img className='poke-image' src={`https://cdn.traction.one/pokedex/pokemon/${props.imgKey}.png`} ></img>
+    <img className='poke-image' src={`https://cdn.traction.one/pokedex/pokemon/${props.imgKey}.png`} ></img>
+
   )
 }
