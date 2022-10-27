@@ -1,4 +1,4 @@
-useEffect(() => {
+// useEffect(() => {
     const PokegotchiSelect = async () => {
         try {
             const res = await axios.put('/controllers/pokegotchi', {

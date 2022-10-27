@@ -64,7 +64,7 @@ export default function Pokedex() {
       <div className="grid-container">
         <div className="grid-item">
           {/* SET ONCLICK??? onClick={this.handleChange} */}
-          <a href="/card">
+          <a href="/card" onClick={this.handleChange}>
             <Box className="pdex-card-box pdex-card-outer">
               <Box className="pdex-card-box pdex-card-inner">
                 <div key={index}>
