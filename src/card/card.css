@@ -56,6 +56,8 @@
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 3px 3px 3px rgb(162, 162, 162);
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
 }
 
 .poke-image {
@@ -74,6 +76,8 @@
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 3px 3px 3px rgb(162, 162, 162);
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
 }
 
 .button-lower {
@@ -81,6 +85,8 @@
     background-color: #3B4CCA;
     display: flex;
     justify-content: space-around;
+    border-bottom-left-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
 }
 
 .button-title {
