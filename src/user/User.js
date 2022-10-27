@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 // MUI imports:
 import { Box } from '@mui/system'
-import { CircularProgress, Button } from '@mui/material'
+import { CircularProgress, Button, Typography } from '@mui/material'
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -192,21 +192,24 @@ export default function User(props) {
             </Dialog>
           </Box>) :
           <>
-            <Button variant='contained' color='error' onClick={cancelEditClick}>Cancel Edit</Button>
-            <form onSubmit={handleEditSubmit}>
-              <div>
-                  <label>Name</label>
-                  <input name="userName" type="text" onChange={handleEditChange} value={newUser.userName}/>
+            <Typography variant='h4'>
+              <p className='form-title'>Edit Profile</p>
+            </Typography>
+            <form className='edit-user-form' onSubmit={handleEditSubmit}>
+              <div className='input-div'>
+                  <label className='input-label' >Name</label>
+                  <input className='input-box' name="userName" type="text" onChange={handleEditChange} value={newUser.userName}/>
               </div>
-              <div>
-                  <label>Email</label>
-                  <input name="emailAddress" type="email" onChange={handleEditChange} value={newUser.emailAddress}/>
+              <div className='input-div'>
+                  <label className='input-label' >Email</label>
+                  <input className='input-box' name="emailAddress" type="email" onChange={handleEditChange} value={newUser.emailAddress}/>
               </div>
 
               <div>
-                  <input type="submit" value="Update User"/>
+                  <input variant='contained' className='mock-button' type="submit" value="Update User"/>
               </div>
             </form>
+            <Button variant='contained' color='error' onClick={cancelEditClick}>Cancel Edit</Button>
           </>
         }
         </Box>
