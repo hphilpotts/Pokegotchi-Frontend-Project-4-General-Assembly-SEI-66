@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import Axios from 'axios'
+
 // MUI imports:
 import { Box } from '@mui/system'
 import { CircularProgress } from '@mui/material'
@@ -54,6 +56,81 @@ export default function Card(props) {
     } 
   }, [])
 
+  const buttonPress = button => {
+    switch (button) {
+      case 'feed':
+        console.log('Feeding ' + pG.name + '!')
+        if (pG.foodLevel < 10) { feedFunction(pG) } else { console.log(`${pG.name} is full!`) }
+        break
+      case 'clean':
+        console.log('Cleaning ' + pG.name + '!')
+        if (pG.cleanLevel < 10) { cleanFunction(pG) } else { console.log(`${pG.name} is already sparkly clean!`) }
+        break
+      case 'play':
+        console.log('Playing with ' + pG.name + '!')
+        if (pG.playLevel < 10) { playFunction(pG) } else { console.log(`${pG.name} is tired and doesn't want to play anymore!`) }
+        break
+      case 'heal':
+        console.log('Healed ' + pG.name + '!')
+        healFunction(pG) // restores pG HP to 100
+        break
+    }
+  }
+  
+  const feedFunction = pokegotchi => {
+    const value = pG.foodLevel + 1
+    Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=foodLevel&value=${value}`, pokegotchi)
+    .then(res => {
+      console.log('PokeGotchi updated!')
+      console.log(res)
+      setPG(res.data.pokegotchi)
+    })
+    .catch(err => {
+      console.log(err)
+    }
+    )
+  }
+  const cleanFunction = pokegotchi => {
+    const value = pG.cleanLevel + 1
+    Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=cleanLevel&value=${value}`, pokegotchi)
+    .then(res => {
+      console.log('PokeGotchi updated!')
+      console.log(res)
+      setPG(res.data.pokegotchi)
+    })
+    .catch(err => {
+      console.log(err)
+    }
+    )
+  }
+  const playFunction = pokegotchi => {
+    const value = pG.playLevel + 1
+    Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=playLevel&value=${value}`, pokegotchi)
+    .then(res => {
+      console.log('PokeGotchi updated!')
+      console.log(res)
+      setPG(res.data.pokegotchi)
+    })
+    .catch(err => {
+      console.log(err)
+    }
+    )
+  }
+
+  const healFunction = pokegotchi => {
+    // console.log(props.user.user.id)
+    Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=hp&value=100`, pokegotchi)
+    .then(res => {
+      console.log('PokeGotchi updated!')
+      console.log(res)
+      setPG(res.data.pokegotchi)
+    })
+    .catch(err => {
+      console.log(err)
+    }
+    )
+  }
+
   if(isLoading) {
     return (
       <Box className="card-box card-outer" sx={{flexGrow: 1}}>
@@ -77,7 +154,7 @@ export default function Card(props) {
             <Sprite imgKey={pG.pokedex}></Sprite>
           </Box>
           <Box className="card-box-inner buttons-box">
-            <Buttons>
+            <Buttons buttonPress={buttonPress}>
               {/* <img src=''></img> commented out temporarily due to React warning message */}
 
 
