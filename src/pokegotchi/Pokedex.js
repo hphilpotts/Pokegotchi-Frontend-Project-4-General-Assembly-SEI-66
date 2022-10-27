@@ -1,7 +1,7 @@
 import React from 'react'
+import axios from 'axios'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import axios from 'axios'
 import Pokegotchi from './Pokegotchi';
 import './pokedex.css'
 
@@ -11,35 +11,71 @@ export default function Pokedex() {
     const [PokegotchiList, setPokegotchiList] = useState([]);
     const [Error, setHasError] = useState([]);
 
-    // const [isEdit, setIsEdit] = useState(false);
-    // const [currentPokegotchi, setCurrentPokegotchi] = useState({})
 
 
     useEffect(() => {
-        const fetchPokegotchiList = async () => {
+        const PokegotchiList = async () => {
             try {
-                const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151')
-                console.log(data)
-                setPokegotchiList(data.results)
+                for (let i = 1; i <= 151; i++) {
+                    const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/' + i);
+                    console.log(data.id)
+                    console.log(data.name)
+                    console.log(data.sprites.other["official-artwork"].front_default)
+                    // console.log(data, "string")
+
+                    setPokegotchiList(data.id)
+                    // console.log(setPokegotchiList)
+
+
+                }
             } catch (err) {
                 setHasError({ error: true, message: err.message })
             }
         }
-        fetchPokegotchiList()
+        PokegotchiList()
     }, [])
 
-        
-        PokegotchiList.map(item => {
-                    return <Pokegotchi key={item.name} {...item} />
-                }
-            )
-              
     return (
-        <div>
-            {/* IMG needs to be redone  */}
-            <img src="img/pick1.png" className='logo-image' alt="pokemon-logo"/>
+         <div>
 
-        </div>
+         </div>
     )
-}
+// ! Spread syntax (...)?
+//! Object.values()?
+// ! object.keys to map through an object????
 
+{/* //         <div>
+//           {Object.keys(PokegotchiList).map((key, index) => {
+//             return (
+//               <div key={index}>
+//                 <h2>
+//                   {key}: {PokegotchiList[key]}
+//                 </h2>
+    
+//                 <hr />
+//               </div>
+//             );
+//           })}
+//             </div>
+    
+//           <br />
+//           <br />
+//           <br />
+    
+
+//         <div>
+
+//             {Object.values(PokegotchiList).map((value, id => {
+//                 return (
+//                     <div id={value}>
+//                         <h2>{id}</h2>
+//                         <hr />
+//           </div>
+//         );
+//       })}
+//     </div>
+</div>
+//   );
+// }
+ */}
+}
