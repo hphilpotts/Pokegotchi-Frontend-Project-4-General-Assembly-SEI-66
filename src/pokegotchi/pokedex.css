@@ -1,5 +1,5 @@
 .grid-container {
-    /* width: auto 0; */
+    width: auto 0;
     display: inline-grid;
     margin-top: 2em;
     grid-template-columns: auto;
