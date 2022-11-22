@@ -120,17 +120,22 @@ Challenges faced included:
 ### 20/10/22 | Day 0 | Brief issued, Planning, Setup:                  
 Immediately after being given the project brief, we were placed into individual breakout rooms on _Zoom_ and given the option of forming groups or, if preferred, working solo for the project. I joined up with Ashish and Dan as they were looking for a third group member and I had yet to work with them on a project. We decided that Ashish would be project lead as he had not yet had experience of this.      
 
-After initial discussion we settled on an idea and put together a Trello board:     
+After initial discussion we settled on an idea and I put together a Trello board:     
 
 ![screenshot of Trello board](readme/trello.png)        
 
-Before creating wireframes:     
+Before jointly creating wireframes with Dan:     
 
 ![screenshot of Figma wireframes](readme/wireframes.png)             
 
-And finally an ERD:     
+And finally an ERD was added by Ashish:     
 
-![screenshot of Lucidchart ERD](readme/erd.png)      
+![screenshot of Lucidchart ERD](readme/erd.png)         
+
+We decided to split ownership, with Dan and Ashish working primarily on the backend - Ashish focusing in particular on app setup, authentication, and backend APIS, Dan focusing on 3rd Party API integration and further backend APIs - and I was to work primarily on the Frontend, owning UI/UX, and frontend auth, CRUD functions and backend API integration.      
+
+At times we would cross over from frontend to backend and vice versa when this made sense from a continuity perspective: for example, Dan added the 3rd Party API based Pokedex components in the frontend and I added Pokégotchi-based APIs in the backend.        
+
 
 Lastly: Git repositories were set up along with React and Express app setup on the front- and back-end respectively, and MongoDB database set up - all ready for the next day.    
 
