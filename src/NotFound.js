@@ -17,7 +17,7 @@ export default function User() {
         <Box className="card-box card-inner">
 
           <h2>Oops! You seem to be lost.</h2>
-            <img className="notfound-img" src='img/confusedPikachu.png'/>
+            <img className="notfound-img" src='public/img/confusedPikachu.png'/>
             <p>Here are some helpful links:</p>
             <Link className="link blue-text" to='/'>Home</Link><br></br>
             <Link className="link blue-text" to='/profile'>Profile</Link>
