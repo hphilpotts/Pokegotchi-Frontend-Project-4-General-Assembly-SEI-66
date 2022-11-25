@@ -118,7 +118,7 @@ export default function Card(props) {
   
   const feedFunction = pokegotchi => {
     const value = pG.foodLevel + 1
-    Axios.put(`https://fair-red-bighorn-sheep-tutu.cyclic.app/pokegotchi/update?id=${props.user.user.id}&field=foodLevel&value=${value}`, pokegotchi)
+    Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=foodLevel&value=${value}`, pokegotchi)
     .then(res => {
       console.log('PokeGotchi updated!')
       setPG(res.data.pokegotchi)
@@ -132,7 +132,7 @@ export default function Card(props) {
   }
   const cleanFunction = pokegotchi => {
     const value = pG.cleanLevel + 1
-    Axios.put(`https://fair-red-bighorn-sheep-tutu.cyclic.app/pokegotchi/update?id=${props.user.user.id}&field=cleanLevel&value=${value}`, pokegotchi)
+    Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=cleanLevel&value=${value}`, pokegotchi)
     .then(res => {
       console.log('PokeGotchi updated!')
       setPG(res.data.pokegotchi)
@@ -146,7 +146,7 @@ export default function Card(props) {
   }
   const playFunction = pokegotchi => {
     const value = pG.playLevel + 1
-    Axios.put(`https://fair-red-bighorn-sheep-tutu.cyclic.app/pokegotchi/update?id=${props.user.user.id}&field=playLevel&value=${value}`, pokegotchi)
+    Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=playLevel&value=${value}`, pokegotchi)
     .then(res => {
       console.log('PokeGotchi updated!')
       setPG(res.data.pokegotchi)
@@ -161,7 +161,7 @@ export default function Card(props) {
 
   const healFunction = pokegotchi => {
     // console.log(props.user.user.id)
-    Axios.put(`https://fair-red-bighorn-sheep-tutu.cyclic.app/pokegotchi/update?id=${props.user.user.id}&field=hp&value=100`, pokegotchi)
+    Axios.put(`pokegotchi/update?id=${props.user.user.id}&field=hp&value=100`, pokegotchi)
     .then(res => {
       console.log('PokeGotchi updated!')
       setPG(res.data.pokegotchi)
