@@ -35,7 +35,7 @@ export default function Home(props) {
         </Typography>
         </Box>
         <Box className='home-img-box'>
-            <img className='home-img' src='img/home.png'/>
+            <img className='home-img' src='public/img/home.png'/>
         </Box>
         {!props.isAuth ?
              <Box className='home-box'>   
