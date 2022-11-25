@@ -67,7 +67,7 @@ export default function App() {
   }
 
   const registerHandler = (user) => { // passing the whole user object
-    Axios.post("https://fair-red-bighorn-sheep-tutu.cyclic.app/auth/signup", user)
+    Axios.post("auth/signup", user)
     .then(response => {
       console.log(response);
     })
@@ -119,7 +119,7 @@ export default function App() {
   const findPG = async id => { // user id is passed in as arg here
     console.log('Finding your PokeGotchi from the backend...')
     console.log('User id passed: ' + id)
-    await Axios.get(`https://fair-red-bighorn-sheep-tutu.cyclic.app/pokegotchi/findbyuser?id=${id}`) // TODO protect with auth
+    await Axios.get(`pokegotchi/findbyuser?id=${id}`) // TODO protect with auth
     .then(res => {
       console.log(id)
       console.log('...found your PokeGotchi!')
