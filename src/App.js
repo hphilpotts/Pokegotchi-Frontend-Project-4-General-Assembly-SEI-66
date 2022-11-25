@@ -67,7 +67,7 @@ export default function App() {
   }
 
   const registerHandler = (user) => { // passing the whole user object
-    Axios.post("auth/signup", user)
+    Axios.post("https://fair-red-bighorn-sheep-tutu.cyclic.app/auth/signup", user)
     .then(response => {
       console.log(response);
     })

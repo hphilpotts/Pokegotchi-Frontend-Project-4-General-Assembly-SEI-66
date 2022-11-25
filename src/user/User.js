@@ -43,7 +43,7 @@ export default function User(props) {
   // GET User detail from Database using App.js user state as id parameter:
   const loadUserDetail = async id => {
     console.log('Passed in: ' + id)
-    await Axios.get(`user/detail?id=${id}`)
+    await Axios.get(`https://fair-red-bighorn-sheep-tutu.cyclic.app/user/detail?id=${id}`)
     .then(res => {
       let user = res.data.user
       console.log('Loaded User info:')
@@ -86,7 +86,7 @@ export default function User(props) {
     // GET EDIT User data:
   const getEditUser = id => {
     console.log('edit user')
-    Axios.get(`/user/edit?id=${id}`)
+    Axios.get(`https://fair-red-bighorn-sheep-tutu.cyclic.app/user/edit?id=${id}`)
     .then(res => {
       console.log('logging user edit get:')
       console.log(res)
@@ -99,7 +99,7 @@ export default function User(props) {
 
     // PUT EDIT User data:
   const editUser = user => {
-    Axios.put("user/update", user)
+    Axios.put("https://fair-red-bighorn-sheep-tutu.cyclic.app/user/update", user)
     .then(res => {
       console.log("updated user")
       console.log(res)
@@ -128,7 +128,7 @@ export default function User(props) {
 
     // DELETE Axios function:
   const deleteUser = id => {
-    Axios.delete(`user/delete?id=${id}`)
+    Axios.delete(`https://fair-red-bighorn-sheep-tutu.cyclic.app/user/delete?id=${id}`)
     .then(res => {
       console.log('Deleted user!')
       console.log(res)
