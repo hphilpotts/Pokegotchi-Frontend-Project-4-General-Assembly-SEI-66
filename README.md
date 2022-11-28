@@ -6,7 +6,7 @@
 
 ## Description:     
 
-This is a MERN stack web application - _Pokégotchi_ - built as group of three ([Ashish](https://github.com/EHCarr) (Team Leader), [Dan](https://github.com/Emsley1d) and I) in a timescale of one week, using linked frontend and backend applications: a Node.js backend, with Express framework and an Atlas hosted MongoDB database, linked to a React-based frontend application. This was Project 4 - the 'capstone' project - completed as part of General Assembly London's Software Engineering Immersive course. We presented a deployed version to my Instructional Team and fellow SEI cohort on 26/08/22.            
+This is a MERN stack web application - _Pokégotchi_ - built as group of three ([Ashish](https://github.com/EHCarr) (Team Leader), [Dan](https://github.com/Emsley1d) and I) in a timescale of one week, using linked frontend and backend applications: a Node.js backend, with Express framework and an Atlas hosted MongoDB database, linked to a React-based frontend application. This was Project 4 - the 'capstone' project - completed as part of General Assembly London's Software Engineering Immersive course. We presented a deployed version to my Instructional Team and fellow SEI cohort on 26/10/22.            
 
 ![screenshot of app header and logo](readme/main.png)      
 
@@ -15,16 +15,15 @@ This web app is a crossover between Tamagotchi and Pokémon, where users can sel
 I focused primarily on the frontend of the application, creating and styling all components with the exception of `Pokedex.js` and `Choice.js`. This includes signup/sign in, frontend authentication, `User` CRUD operations, the Pokégotchi card and overall main App UI/UX. I also worked on the backend `User` APIs as well as some further backend APIs and functionality.        
 
 ## Links:       
-[Deployment link](https://project04pokegotchi.herokuapp.com/)       
-<!-- TODO : fix or redeploy app so that this link works... -->
+[Deployment link](https://pokegotchi-frontend-project-4-general-assembly-sei-66-rehost.vercel.app/)       
 
-[Frontend GitHub Repository](https://github.com/hphilpotts/Pokegotchi-Frontend-Project-4-General-Assembly-SEI-66/tree/harrydev/src/pokegotchi) | [Backend GitHub Repository](https://github.com/hphilpotts/Pokegotchi-Backend-Project-4-General-Assembly-SEI-66)     
+[Frontend (Rehosted) GitHub Repository](https://github.com/hphilpotts/Pokegotchi-Frontend-Project-4-General-Assembly-SEI-66-rehost) | [Backend GitHub Repository](https://github.com/hphilpotts/Pokegotchi-Backend-Project-4-General-Assembly-SEI-66)     
 
 ## Getting started & Install:     
 
 To get started, please feel free to sign in as: Test29@test.com // pw: London29 - or sign up (your real email is not required!).       
 
-To contribute, please fork and clone the Frontend and Backend repositories respectively as above, running `npm install` in each repository in order to install required dependencies. Alternatively, please see each `package.json` for a list of required dependencies.         
+To contribute, please fork and clone the Frontend (_Rehosted_) and Backend repositories respectively as above, running `npm install` in each repository in order to install required dependencies. Alternatively, please see each `package.json` for a list of required dependencies.         
 
 Please submit pull requests for any completed contributions.        
 
@@ -35,12 +34,14 @@ Please submit pull requests for any completed contributions.
 - Axios     
 - MUI styling       
 - React Router DOM routes, JWT authentication       
+- Vercel application hosting (previously Heroku hosted)      
 
 ### Backend:        
 - Node.js runtime environment, Express framework
 - JavaScript, jQuery, Mongoose, Axios               
 - Atlas hosted MongoDB database, MongoDB Compass GUI          
 - bcrypt, body-parser, jsonwebtoken, passport dependencies        
+- Cyclic application hosting (previously Heroku hosted)      
 
 ### Project:        
 - Trello project board      
@@ -265,7 +266,7 @@ Challenges faced included:
 - React itself! Whilst very powerful and great fun to work with, it can be particularly 'picky' and often simply stops running (_of course this is great when it is preventing infinite loops_!), errors can come thick and fast, and VSCode sometimes struggles. A steep learning curve but one well worth overcoming!        
 
 ## Bugs & Issues:       
-- Heroku-hosted version of the App does not currently work.         
+- Heroku-hosted version of the App does not currently work. (**Resolved 28/11/22 - see rehosted FE Repo link at top**)         
 - 'Select Pokégotchi' for new users is not working: instead this requires Pokégotchi to be manually inserted into the database.      
 - Alert messages not yet implemented. For example: a failed sign in is not obvious to the user.        
 - Status values can drop below 0 which then prevents any incrementation through User action.     
